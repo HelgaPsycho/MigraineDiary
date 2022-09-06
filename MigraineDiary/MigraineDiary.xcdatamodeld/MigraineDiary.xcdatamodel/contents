@@ -1,4 +1,26 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="1" systemVersion="11A491" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithCloudKit="false" userDefinedModelVersionIdentifier="">
-    <elements/>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="20086" systemVersion="21G83" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Medication" representedClassName="Medication" syncable="YES">
+        <attribute name="drugAndDose" optional="YES" attributeType="String"/>
+        <relationship name="migraineEpisode" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="MigraineEpisode" inverseName="drug" inverseEntity="MigraineEpisode"/>
+    </entity>
+    <entity name="MigraineEpisode" representedClassName="MigraineEpisode" syncable="YES">
+        <attribute name="date" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="dutation" optional="YES" attributeType="String"/>
+        <attribute name="intensity" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="intensityAfterMadication" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="medication" optional="YES" attributeType="String"/>
+        <attribute name="triggers" optional="YES" attributeType="String"/>
+        <relationship name="drug" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Medication" inverseName="migraineEpisode" inverseEntity="Medication"/>
+        <relationship name="trigger" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Triggers" inverseName="migrainEpisode" inverseEntity="Triggers"/>
+    </entity>
+    <entity name="Triggers" representedClassName="Triggers" syncable="YES">
+        <attribute name="trigger" optional="YES" attributeType="String"/>
+        <relationship name="migrainEpisode" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="MigraineEpisode" inverseName="trigger" inverseEntity="MigraineEpisode"/>
+    </entity>
+    <elements>
+        <element name="MigraineEpisode" positionX="-303.64453125" positionY="57.921875" width="128" height="163"/>
+        <element name="Medication" positionX="-54" positionY="45" width="128" height="73"/>
+        <element name="Triggers" positionX="-107.4140625" positionY="247.0703125" width="128" height="73"/>
+    </elements>
 </model>
