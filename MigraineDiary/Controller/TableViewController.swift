@@ -45,7 +45,7 @@ class TableViewController: UITableViewController  {
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let customCell = migraineTableView.dequeueReusableCell(withIdentifier: MigraineEpisodeCell.identifier, for: indexPath) as! MigraineEpisodeCell
-        let image: UIImage = UIImage(imageLiteralResourceName: "\(indexPath.row + 1)")
+        let image: UIImage = UIImage(imageLiteralResourceName: "\(migrainScaleArray[indexPath.row])")
         customCell.configure(date: "06.08.19", medication: "Ibuprofen", image: image)
         //cell.textLabel?.text = "22.03.22"
         
