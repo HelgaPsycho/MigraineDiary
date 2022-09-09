@@ -19,8 +19,8 @@
         <relationship name="migrainEpisode" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="MigraineEpisode" inverseName="trigger" inverseEntity="MigraineEpisode"/>
     </entity>
     <elements>
-        <element name="MigraineEpisode" positionX="-303.64453125" positionY="57.921875" width="128" height="163"/>
         <element name="Medication" positionX="-54" positionY="45" width="128" height="73"/>
+        <element name="MigraineEpisode" positionX="-303.64453125" positionY="57.921875" width="128" height="163"/>
         <element name="Triggers" positionX="-107.4140625" positionY="247.0703125" width="128" height="73"/>
     </elements>
 </model>
