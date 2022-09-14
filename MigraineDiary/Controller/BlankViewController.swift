@@ -10,6 +10,8 @@ import CoreData
 
 class BlankViewController: UIViewController {
     
+    var dataStoreManager = DataStoreManager()
+    
     
     @IBOutlet weak var datePicker: UIDatePicker!
     @IBOutlet weak var triggersTextField: UITextField!
@@ -23,91 +25,109 @@ class BlankViewController: UIViewController {
         
         super.viewDidLoad()
         
+    
+        
         // Do any additional setup after loading the view.
     }
     
-    //let medicationMenu = UIMenu (title: "Medication", children: medicationMenuActions)
-    //   medicationButton.menu = medicationMenu
     
     @IBAction func saveButtonPressed(_ sender: UIButton) {
-        
-        print("Migraine date is \(datePicker.date)")
-        print("Migrain trigger is \(String(describing: triggersTextField.text))")
+
+        let migraineEpisode = MigraineEpisode(context: dataStoreManager.blankViewContext)
+
+        migraineEpisode.date = datePicker.date
+        migraineEpisode.triggers = textFieldDidEndEditing(triggersTextField)
         if auraSegmentalController.selectedSegmentIndex == 0 {
-            print ("No Aura")
-        } else if auraSegmentalController.selectedSegmentIndex == 1 { print ("With Aura") }
+            migraineEpisode.aura = false
+        } else { migraineEpisode.aura = true }
         switch intensitySegmentalController.selectedSegmentIndex {
         case 0 :
-            print("Intensity of the migraine is 1")
+            migraineEpisode.intensity = 1
         case 1 :
-            print("Intensity of the migraine is 2")
+            migraineEpisode.intensity = 2
         case 2 :
-            print("Intensity of the migraine is 3")
+            migraineEpisode.intensity = 3
         case 3 :
-            print("Intensity of the migraine is 4")
+            migraineEpisode.intensity = 4
         case 4 :
-            print("Intensity of the migraine is 5")
+            migraineEpisode.intensity = 5
         case 5 :
-            print("Intensity of the migraine is 6")
+            migraineEpisode.intensity = 6
         case 6 :
-            print("Intensity of the migraine is 7")
+            migraineEpisode.intensity = 7
         case 7 :
-            print("Intensity of the migraine is 8")
+            migraineEpisode.intensity = 8
         case 8 :
-            print("Intensity of the migraine is 9")
+            migraineEpisode.intensity = 9
         case 9 :
-            print("Intensity of the migraine is 10")
+            migraineEpisode.intensity = 10
         default:
-            print("Intensity of the migraine is 1")
+            migraineEpisode.intensity = 1
         }
-        print("Medication is \(String(describing: medicationTextField.text))")
+        
+        migraineEpisode.medication = textFieldDidEndEditing(medicationTextField)
+    
         switch durationSegmentalController.selectedSegmentIndex {
         case 0 :
-            print("Duration of Migrain Episode is 0 - 2 hours ")
+            migraineEpisode.dutation = "0 - 2"
         case 1 :
-            print("Duration of Migrain Episode is 2 - 6 hours")
+            migraineEpisode.dutation = "2 - 6"
         case 2 :
-            print("Duration of Migrain Episode is 6 - 12 hours")
+            migraineEpisode.dutation = "6 - 12"
         case 3 :
-            print("Duration of Migrain Episode > 12 hours")
+            migraineEpisode.dutation = "12 - 24"
         case 4 :
-            print("Duration of Migrain Episode > 24 hours")
+            migraineEpisode.dutation = "> 24"
         default:
             print("Duration of Migrain Episode 0 - 2 hours")
         }
         switch intensityAfterMedicationSegmantalController.selectedSegmentIndex {
         case 0 :
-            print("Intensity of the migraine after medication is 1")
+            migraineEpisode.intensityAfterMadication = 0
         case 1 :
-            print("Intensity of the migraine after medication is 2")
+            migraineEpisode.intensityAfterMadication = 1
         case 2 :
-            print("Intensity of the migraine after medication is 3")
+            migraineEpisode.intensityAfterMadication = 2
         case 3 :
-            print("Intensity of the migraine after medication is 4")
+            migraineEpisode.intensityAfterMadication = 3
         case 4 :
-            print("Intensity of the migraine after medication is 5")
+            migraineEpisode.intensityAfterMadication = 4
         case 5 :
-            print("Intensity of the migraine after medication is 6")
+            migraineEpisode.intensityAfterMadication = 5
         case 6 :
-            print("Intensity of the migraine after medication is 7")
+            migraineEpisode.intensityAfterMadication = 6
         case 7 :
-            print("Intensity of the migraine after medication is 8")
+            migraineEpisode.intensityAfterMadication = 7
         case 8 :
-            print("Intensity of the migraine after medication is 9")
+            migraineEpisode.intensityAfterMadication = 8
         case 9 :
-            print("Intensity of the migraine after medication is 10")
+            migraineEpisode.intensityAfterMadication = 9
+        case 10 :
+            migraineEpisode.intensityAfterMadication = 19
         default:
-            print("Intensity of the migraine after medication is 1")
-        }
-        /*
-         // MARK: - Navigation
-         
-         // In a storyboard-based application, you will often want to do a little preparation before navigation
-         override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-         // Get the new view controller using segue.destination.
-         // Pass the selected object to the new view controller.
-         }
-         */
+            migraineEpisode.intensityAfterMadication = 0
+    
+      }
         
-    }
+     dataStoreManager.saveContext()
+//
+//        /*
+//         // MARK: - Navigation
+//
+//         // In a storyboard-based application, you will often want to do a little preparation before navigation
+//         override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//         // Get the new view controller using segue.destination.
+//         // Pass the selected object to the new view controller.
+//         }
+//         */
+   }
 }
+
+extension BlankViewController: UITextFieldDelegate {
+    private func textFieldDidEndEditing(_ textField: UITextField) -> String {
+        return textField.text!
+    }
+    
+
+}
+

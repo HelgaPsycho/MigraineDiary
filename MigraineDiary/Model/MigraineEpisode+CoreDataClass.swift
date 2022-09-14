@@ -2,7 +2,7 @@
 //  MigraineEpisode+CoreDataClass.swift
 //  MigraineDiary
 //
-//  Created by Ольга Егорова on 06.09.2022.
+//  Created by Ольга Егорова on 14.09.2022.
 //
 //
 

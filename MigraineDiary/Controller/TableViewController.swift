@@ -6,8 +6,12 @@
 //
 
 import UIKit
+import CoreData
 
-class TableViewController: UITableViewController  {
+class TableViewController: UITableViewController, NSFetchedResultsControllerDelegate   {
+    
+    var dataStoreManager = DataStoreManager()
+    
     var migrainScaleArray: Array <Int> = []
 
     @IBOutlet var migraineTableView: UITableView!
@@ -40,6 +44,7 @@ class TableViewController: UITableViewController  {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         return migrainScaleArray.count
+    
     }
  
 
@@ -96,5 +101,8 @@ class TableViewController: UITableViewController  {
         // Pass the selected object to the new view controller.
     }
     */
+    
+
 
 }
+
