@@ -30,12 +30,17 @@ print ("======================= blankViewContext func===========================
     return persistentContainer.viewContext
         
     }()
+    
+    lazy var  tableViewContext: NSManagedObjectContext = {
+        print  ("======================= tableViewContext func===========================")
+        return persistentContainer.viewContext
+    }()
 
 lazy var backgroundContext: NSManagedObjectContext = {
     return persistentContainer.newBackgroundContext()
     } ()
     
-// MARK: - CRUD
+// MARK: - CRUD -
     
     //  CREATE AND SAVE
     func saveContext () {
@@ -54,7 +59,24 @@ lazy var backgroundContext: NSManagedObjectContext = {
     
     // READ
     
+    func obtainMigraineEpisode () throws -> [MigraineEpisode] {
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName : "MigraineEpisode")
+
+        if let migraineEpisodes = try tableViewContext.fetch(fetchRequest) as? [MigraineEpisode],
+           !migraineEpisodes.isEmpty {
+            return migraineEpisodes
+        } else {
+            throw DataStoreManagerErrors.emptyDataBase }
+    }
+
+    
     //UPDATE
     
     //DELETE
+}
+
+
+// MARK: - DataStoreManagerErrors -
+enum DataStoreManagerErrors: Error {
+    case emptyDataBase
 }
