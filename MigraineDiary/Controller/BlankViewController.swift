@@ -21,14 +21,43 @@ class BlankViewController: UIViewController {
     @IBOutlet weak var durationSegmentalController: UISegmentedControl!
     @IBOutlet weak var intensityAfterMedicationSegmantalController: UISegmentedControl!
     
+    let tableViewController = TableViewController(nibName: "tableViewController", bundle: .main)
+    //@IBOutlet var migraineTableView: UITableView!
+    
     override func viewDidLoad() {
         
         super.viewDidLoad()
+        print("viewDidLoad called for BlankViewController")
         
     
         
         // Do any additional setup after loading the view.
     }
+    override func viewWillAppear(_ animated: Bool) {
+            super.viewWillAppear(animated)
+            print("viewWillAppear called for BlankViewController")
+        }
+        
+        override func viewDidAppear(_ animated: Bool) {
+            super.viewDidAppear(animated)
+            print ("viewDidAppear called for BlankViewController")
+        }
+        
+        override func viewWillDisappear(_ animated: Bool) {
+            super.viewWillDisappear(animated)
+            //вызывается при закрывании контроллера
+
+            print ("viewWillDisppear for BlankViewController")
+             //tableViewController.viewDidLoad()
+             tableViewController.printTestString()
+        }
+        
+        override func viewDidDisappear(_ animated: Bool) {
+            super.viewDidDisappear(animated)
+            print("viewDidDissapear for BlankViewController")
+        }
+
+
     
     
     @IBAction func saveButtonPressed(_ sender: UIButton) {
@@ -110,6 +139,13 @@ class BlankViewController: UIViewController {
       }
         
      dataStoreManager.saveContext()
+        
+        //ДОБАВИТЬ ОБНОВЛЕНИЕ TABLEVIEWCONTROLLER
+        
+        // СВОРАЧИВАНИЕ КОНТРОЛЛЕРА ПРИ НАЖАТИИ КНОПКИ SAVE
+     self.dismiss(animated: true, completion: nil)
+        
+        
 //
 //        /*
 //         // MARK: - Navigation

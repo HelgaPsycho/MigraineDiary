@@ -15,19 +15,29 @@ class MigraineEpisodeCell: UITableViewCell {
         return UINib(nibName: "MigraineEpisodeCell", bundle: nil)
         // nibName - название файла xib
     }
+    var dateOfMigraineEpisode: Date = Date(timeIntervalSinceNow: 0)
     
-    public func configure (date: String, medication: String, image: UIImage){
-        dateLabel.text = date
+    public func configure (date: Date, medication: String, image: UIImage){
+        dateLabel.text = formateDateToString(date: date)
         medicationLabel.text = medication
         scaleImage.image = image
+        dateOfMigraineEpisode = date
     }
+    func formateDateToString (date: Date) -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd.MM.yyyy HH:mm"
+        let formatedDate = dateFormatter.string(from: date)
+        return formatedDate
+    }
+    
+    
     
     @IBOutlet weak var dateLabel: UILabel!
     
     @IBOutlet weak var medicationLabel: UILabel!
     
     @IBOutlet weak var scaleImage: UIImageView!
-    
+
     
     override func awakeFromNib() {
         super.awakeFromNib()

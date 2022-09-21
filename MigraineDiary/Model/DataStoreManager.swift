@@ -66,17 +66,37 @@ lazy var backgroundContext: NSManagedObjectContext = {
            !migraineEpisodes.isEmpty {
             return migraineEpisodes
         } else {
-            throw DataStoreManagerErrors.emptyDataBase }
+            print ("DataStroreManager.obtainMigraineEpisode ERROR")
+            throw DataStoreManagerErrors.emptyDataBase
+        }
     }
-
     
+   
+
     //UPDATE
     
     //DELETE
+    
+    func obtainAndRemoveOneMigraineEpisode (date: Date) throws {
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "MigraineEpisode")
+        fetchRequest.predicate = NSPredicate(format: "date = %@", date as CVarArg)
+        
+        if let migraineEpisodes = try tableViewContext.fetch(fetchRequest) as? [MigraineEpisode]
+            {
+            guard let migraineEpisode = migraineEpisodes.first else {return}
+            tableViewContext.delete(migraineEpisode)
+            
+            try tableViewContext.save()
+       
+            
+            
+            
+        }
+    }
 }
-
 
 // MARK: - DataStoreManagerErrors -
 enum DataStoreManagerErrors: Error {
     case emptyDataBase
+    case cantSaveDelete
 }

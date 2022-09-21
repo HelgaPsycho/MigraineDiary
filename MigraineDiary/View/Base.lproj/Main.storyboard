@@ -78,10 +78,11 @@
                                     <constraint firstAttribute="trailing" secondItem="KUa-sD-OBR" secondAttribute="trailing" constant="20" id="gN0-ST-lP5"/>
                                 </constraints>
                             </view>
-                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CPC-Pe-YVL">
-                                <rect key="frame" x="0.0" y="114" width="414" height="668"/>
+                            <containerView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kgV-4T-bk1">
+                                <rect key="frame" x="0.0" y="115" width="414" height="667"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <connections>
-                                    <segue destination="ok1-8G-oqs" kind="embed" identifier="tableViewSegue" id="7mm-HK-Mhg"/>
+                                    <segue destination="ok1-8G-oqs" kind="embed" id="hg7-CM-PFk"/>
                                 </connections>
                             </containerView>
                         </subviews>
@@ -89,28 +90,24 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="FbO-ko-UKH" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="1xW-FB-SA7"/>
-                            <constraint firstItem="CPC-Pe-YVL" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="2hg-kU-wMf"/>
-                            <constraint firstItem="CPC-Pe-YVL" firstAttribute="top" secondItem="FbO-ko-UKH" secondAttribute="bottom" id="EwR-po-X0f"/>
                             <constraint firstItem="HvC-ey-3To" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="PJm-Nf-Lke"/>
-                            <constraint firstItem="CPC-Pe-YVL" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Xeb-YC-mVr"/>
                             <constraint firstItem="FbO-ko-UKH" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="b93-u3-Xju"/>
                             <constraint firstItem="FbO-ko-UKH" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="e7V-BV-u9T"/>
                             <constraint firstItem="HvC-ey-3To" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="pxv-x9-mKv"/>
                             <constraint firstItem="HvC-ey-3To" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="qpX-xL-T1T"/>
-                            <constraint firstItem="HvC-ey-3To" firstAttribute="top" secondItem="CPC-Pe-YVL" secondAttribute="bottom" id="sKK-ZK-6e4"/>
                         </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="18.840579710144929" y="80.357142857142847"/>
+            <point key="canvasLocation" x="-38" y="147"/>
         </scene>
         <!--Table View Controller-->
         <scene sceneID="2Al-qL-jH3">
             <objects>
-                <tableViewController id="ok1-8G-oqs" customClass="TableViewController" customModule="MigraineDiary" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="&quot;tableViewController&quot;" id="ok1-8G-oqs" customClass="TableViewController" customModule="MigraineDiary" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="Ana-dm-MZo" userLabel="MigraineTableView">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="668"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
@@ -127,13 +124,14 @@
                             <outlet property="dataSource" destination="ok1-8G-oqs" id="QId-DP-5eS"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" id="hY9-si-rlF"/>
                     <connections>
                         <outlet property="migraineTableView" destination="Ana-dm-MZo" id="Xd2-ss-Fa2"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sCz-vh-sxU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-630" y="80"/>
+            <point key="canvasLocation" x="-817" y="147"/>
         </scene>
         <!--Blank View Controller-->
         <scene sceneID="Hvt-5E-CIb">
