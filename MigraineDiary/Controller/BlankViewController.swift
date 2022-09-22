@@ -14,6 +14,7 @@ class BlankViewController: UIViewController {
     
     
     @IBOutlet weak var datePicker: UIDatePicker!
+
     @IBOutlet weak var triggersTextField: UITextField!
     @IBOutlet weak var auraSegmentalController: UISegmentedControl!
     @IBOutlet weak var intensitySegmentalController: UISegmentedControl!
@@ -141,7 +142,10 @@ class BlankViewController: UIViewController {
      dataStoreManager.saveContext()
         
         //ДОБАВИТЬ ОБНОВЛЕНИЕ TABLEVIEWCONTROLLER
-        
+        // не работает:
+//tableViewController.viewDidLoad()
+     //   tableViewController.reloadInputViews()
+        // tableViewController.viewWillAppear(true)
         // СВОРАЧИВАНИЕ КОНТРОЛЛЕРА ПРИ НАЖАТИИ КНОПКИ SAVE
      self.dismiss(animated: true, completion: nil)
         

@@ -117,14 +117,15 @@ class TableViewController: UITableViewController, NSFetchedResultsControllerDele
     
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            self.migraineEpisodeArray.remove(at: indexPath.row)
-            self.tableView.deleteRows(at: [indexPath], with: .automatic)
-            let indexOfArrayElement: Int = Int(indexPath.row) - 1
+            let indexOfArrayElement: Int = Int(indexPath.row)
             do {
                try dataStoreManager.obtainAndRemoveOneMigraineEpisode (date: migraineEpisodeArray[indexOfArrayElement].date!)
                 //print ("\(migraineEpisodeArray[].date!)")
             }
             catch {print ("ERROR in TablieViewController with cell delete")}
+           
+            self.migraineEpisodeArray.remove(at: indexOfArrayElement)
+            self.tableView.deleteRows(at: [indexPath], with: .automatic)
            
 
             //dataStoreManager.removeMigraineEpisode(migraineEpisode: <#T##MigraineEpisode#>)
