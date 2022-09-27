@@ -21,8 +21,10 @@ class BlankViewController: UIViewController {
     @IBOutlet weak var medicationTextField: UITextField!
     @IBOutlet weak var durationSegmentalController: UISegmentedControl!
     @IBOutlet weak var intensityAfterMedicationSegmantalController: UISegmentedControl!
-    
-    let tableViewController = TableViewController(nibName: "tableViewController", bundle: .main)
+        
+   // let tableViewController = TableViewController(nibName: "ok1-8G-oqs-view-Ana-dm-MZo", bundle: .main)
+    //let tableViewController = TableViewController()
+   // let firstViewController = FirstViewController()
     //@IBOutlet var migraineTableView: UITableView!
     
     override func viewDidLoad() {
@@ -50,7 +52,7 @@ class BlankViewController: UIViewController {
 
             print ("viewWillDisppear for BlankViewController")
              //tableViewController.viewDidLoad()
-             tableViewController.printTestString()
+           //  tableViewController.printTestString()
         }
         
         override func viewDidDisappear(_ animated: Bool) {
@@ -58,8 +60,6 @@ class BlankViewController: UIViewController {
             print("viewDidDissapear for BlankViewController")
         }
 
-
-    
     
     @IBAction func saveButtonPressed(_ sender: UIButton) {
 
@@ -70,30 +70,8 @@ class BlankViewController: UIViewController {
         if auraSegmentalController.selectedSegmentIndex == 0 {
             migraineEpisode.aura = false
         } else { migraineEpisode.aura = true }
-        switch intensitySegmentalController.selectedSegmentIndex {
-        case 0 :
-            migraineEpisode.intensity = 1
-        case 1 :
-            migraineEpisode.intensity = 2
-        case 2 :
-            migraineEpisode.intensity = 3
-        case 3 :
-            migraineEpisode.intensity = 4
-        case 4 :
-            migraineEpisode.intensity = 5
-        case 5 :
-            migraineEpisode.intensity = 6
-        case 6 :
-            migraineEpisode.intensity = 7
-        case 7 :
-            migraineEpisode.intensity = 8
-        case 8 :
-            migraineEpisode.intensity = 9
-        case 9 :
-            migraineEpisode.intensity = 10
-        default:
-            migraineEpisode.intensity = 1
-        }
+//
+        migraineEpisode.intensity = Int16(intensitySegmentalController.selectedSegmentIndex + 1)
         
         migraineEpisode.medication = textFieldDidEndEditing(medicationTextField)
     
@@ -111,43 +89,23 @@ class BlankViewController: UIViewController {
         default:
             print("Duration of Migrain Episode 0 - 2 hours")
         }
-        switch intensityAfterMedicationSegmantalController.selectedSegmentIndex {
-        case 0 :
-            migraineEpisode.intensityAfterMadication = 0
-        case 1 :
-            migraineEpisode.intensityAfterMadication = 1
-        case 2 :
-            migraineEpisode.intensityAfterMadication = 2
-        case 3 :
-            migraineEpisode.intensityAfterMadication = 3
-        case 4 :
-            migraineEpisode.intensityAfterMadication = 4
-        case 5 :
-            migraineEpisode.intensityAfterMadication = 5
-        case 6 :
-            migraineEpisode.intensityAfterMadication = 6
-        case 7 :
-            migraineEpisode.intensityAfterMadication = 7
-        case 8 :
-            migraineEpisode.intensityAfterMadication = 8
-        case 9 :
-            migraineEpisode.intensityAfterMadication = 9
-        case 10 :
-            migraineEpisode.intensityAfterMadication = 19
-        default:
-            migraineEpisode.intensityAfterMadication = 0
-    
-      }
+        
+        migraineEpisode.intensityAfterMadication = Int16(intensityAfterMedicationSegmantalController.selectedSegmentIndex + 1)
         
      dataStoreManager.saveContext()
         
-        //ДОБАВИТЬ ОБНОВЛЕНИЕ TABLEVIEWCONTROLLER
+        //=======================ДОБАВИТЬ ОБНОВЛЕНИЕ TABLEVIEWCONTROLLER===========================
         // не работает:
-//tableViewController.viewDidLoad()
-     //   tableViewController.reloadInputViews()
+        //tableViewController.viewDidLoad()
+        //   tableViewController.reloadInputViews()
         // tableViewController.viewWillAppear(true)
+        //tableViewController.viewDidAppear(false)
         // СВОРАЧИВАНИЕ КОНТРОЛЛЕРА ПРИ НАЖАТИИ КНОПКИ SAVE
      self.dismiss(animated: true, completion: nil)
+      //  tableViewController.dismiss(animated: true)
+      //  firstViewController.dismiss(animated: false)
+        //firstViewController.reloadInputViews()
+       // tableViewController.loadView()
         
         
 //
@@ -161,6 +119,7 @@ class BlankViewController: UIViewController {
 //         }
 //         */
    }
+    
 }
 
 extension BlankViewController: UITextFieldDelegate {

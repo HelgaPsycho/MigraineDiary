@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		9C234C6A28C7E714008F7E1C /* BlankViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C234C6928C7E714008F7E1C /* BlankViewController.swift */; };
 		9C234C6C28C89377008F7E1C /* MedicationMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C234C6B28C89377008F7E1C /* MedicationMenu.swift */; };
+		9CB0CD9028E394750084A771 /* Keys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CB0CD8F28E394750084A771 /* Keys.swift */; };
 		9CD156B028CB3A79005E7066 /* DataStoreManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CD156AF28CB3A79005E7066 /* DataStoreManager.swift */; };
 		9CD156B328D1BE44005E7066 /* MigraineEpisode+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CD156B128D1BE44005E7066 /* MigraineEpisode+CoreDataClass.swift */; };
 		9CD156B428D1BE44005E7066 /* MigraineEpisode+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CD156B228D1BE44005E7066 /* MigraineEpisode+CoreDataProperties.swift */; };
@@ -28,6 +29,7 @@
 /* Begin PBXFileReference section */
 		9C234C6928C7E714008F7E1C /* BlankViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlankViewController.swift; sourceTree = "<group>"; };
 		9C234C6B28C89377008F7E1C /* MedicationMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicationMenu.swift; sourceTree = "<group>"; };
+		9CB0CD8F28E394750084A771 /* Keys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keys.swift; sourceTree = "<group>"; };
 		9CD156AF28CB3A79005E7066 /* DataStoreManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStoreManager.swift; sourceTree = "<group>"; };
 		9CD156B128D1BE44005E7066 /* MigraineEpisode+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MigraineEpisode+CoreDataClass.swift"; sourceTree = "<group>"; };
 		9CD156B228D1BE44005E7066 /* MigraineEpisode+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MigraineEpisode+CoreDataProperties.swift"; sourceTree = "<group>"; };
@@ -115,6 +117,7 @@
 			children = (
 				9CD156AF28CB3A79005E7066 /* DataStoreManager.swift */,
 				9CD156B928D74D5C005E7066 /* EmptyDataBaseCell.swift */,
+				9CB0CD8F28E394750084A771 /* Keys.swift */,
 				9CD156B128D1BE44005E7066 /* MigraineEpisode+CoreDataClass.swift */,
 				9CD156B228D1BE44005E7066 /* MigraineEpisode+CoreDataProperties.swift */,
 			);
@@ -197,6 +200,7 @@
 				9CEB4D7328C51E2E00E65920 /* TableViewController.swift in Sources */,
 				9CD156BA28D74D5C005E7066 /* EmptyDataBaseCell.swift in Sources */,
 				9CEB4D5128C4B7C500E65920 /* FirstViewController.swift in Sources */,
+				9CB0CD9028E394750084A771 /* Keys.swift in Sources */,
 				9CD156B328D1BE44005E7066 /* MigraineEpisode+CoreDataClass.swift in Sources */,
 				9CD156B028CB3A79005E7066 /* DataStoreManager.swift in Sources */,
 				9CEB4D4D28C4B7C500E65920 /* AppDelegate.swift in Sources */,

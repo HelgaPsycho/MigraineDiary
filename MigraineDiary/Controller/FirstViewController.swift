@@ -9,8 +9,6 @@ import UIKit
 
 class FirstViewController: UIViewController {
  
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         print("viewDidLoad called for FirstViewController")
@@ -18,7 +16,7 @@ class FirstViewController: UIViewController {
         
     }
     
-    override func viewWillAppear(_ animated: Bool) {
+        override func viewWillAppear(_ animated: Bool) {
             super.viewWillAppear(animated)
             print("viewWillAppear called for FirstViewController")
         }

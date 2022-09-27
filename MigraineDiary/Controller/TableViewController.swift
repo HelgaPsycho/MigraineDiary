@@ -8,13 +8,26 @@
 import UIKit
 import CoreData
 
+//protocol TableViewDataSourceDelegate:  class {
+//    associatedtype MigraineEpisode: NSFetchRequestResult
+//    associatedtype Cell: UITableViewCell
+//
+//    func configure(_ cell: Cell, for migraineEpisode: MigraineEpisode)
+//}
+
 class TableViewController: UITableViewController, NSFetchedResultsControllerDelegate   {
+   
+//    typealias MigraineEpisode = Delegate.MigraineEpisode
+//    typealias Cell = Delegate.Cell
+    
     
     var dataStoreManager = DataStoreManager()
     
     var migraineEpisodeArray: Array <MigraineEpisode> = []
     
     @IBOutlet var migraineTableView: UITableView!
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,10 +41,12 @@ class TableViewController: UITableViewController, NSFetchedResultsControllerDele
         }
         catch {
         }
-        
-        print("viewDidLoad called for TableViewController")
+    
 
     }
+    
+    
+    
     //метод для проверки, можно ли вызвать функцию с tableViewController при закрывании blancViewController
     func printTestString () {
         print ("TalbleViewController called throw blankViewController")
@@ -58,12 +73,7 @@ class TableViewController: UITableViewController, NSFetchedResultsControllerDele
            print("viewDidDissapear for TableViewController")
        }
 
-    //        migrainScaleArray = [10, 3, 6, 9 ,2]
-    //        migraineTableView.dataSource = self
-    //        migraineTableView.delegate = self
-    //
-    
-    //migraineTableView.register(MigraineEpisodeCell.self, forCellReuseIdentifier: "reuseIdentifier")
+   
     
     // Uncomment the following line to preserve selection between presentations
     //self.clearsSelectionOnViewWillAppear = false
@@ -98,13 +108,6 @@ class TableViewController: UITableViewController, NSFetchedResultsControllerDele
         
     }
     
-//    func formateDateToString (date: Date) -> String {
-//        let dateFormatter = DateFormatter()
-//        dateFormatter.dateFormat = "dd.MM.yyyy HH:mm"
-//        let formatedDate = dateFormatter.string(from: date)
-//        return formatedDate
-
-    
     func toObtainAndSortMigrainEpisodes () throws -> [MigraineEpisode] {
         if var migraineEpisodeArray = try? dataStoreManager.obtainMigraineEpisode() {
             migraineEpisodeArray.sort {$0.date! > $1.date!}
@@ -127,19 +130,27 @@ class TableViewController: UITableViewController, NSFetchedResultsControllerDele
             self.migraineEpisodeArray.remove(at: indexOfArrayElement)
             self.tableView.deleteRows(at: [indexPath], with: .automatic)
            
-
-            //dataStoreManager.removeMigraineEpisode(migraineEpisode: <#T##MigraineEpisode#>)
-            //migraineEpisodeArray[indexPath]
-//            let migraineEpisodeCell = tableView.dequeueReusableCell(withIdentifier: "migraineEpisodeCell", for: indexPath) as! MigraineEpisodeCell
-//                for migraineEpisode in migraineEpisodeArray {
-                  //  if migraineEpisodeCell.formateDateToString(date: migraineEpisode.date ?? //Date(timeIntervalSinceNow: 0) == migraineEpisodeCell.dateLabel)
-                  //  do {
-                    //dataStoreManager.removeMigraineEpisode(migraineEpisode: migraineEpisode)
-               // }
             }
             
         }
+    
+    
+
+    
+    
     }
+    
+
+//MARK- OBSERVER
+
+extension TableViewController {
+    
+  
+}
+    
+    
+    
+    
 
 /*
  // Override to support conditional editing of the table view.
