@@ -15,8 +15,8 @@ App save information about migrain episodes and give saved information and stati
  - Iphone, Ipad
  
 ## **Features**
-* [x]TableViewController
-* [x]CoreDate Create, Read and Delete MigraineEpisode Model
+* [x] TableViewController
+* [x] CoreDate Create, Read and Delete MigraineEpisode Model
 * [ ] CoreDate Update MigraineEpiside Model
 * [ ] CoreDate Read with other predicates to create statistics
 * [ ] Authorising with FireBase
