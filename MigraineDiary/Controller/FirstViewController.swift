@@ -16,26 +16,6 @@ class FirstViewController: UIViewController {
         
     }
     
-        override func viewWillAppear(_ animated: Bool) {
-            super.viewWillAppear(animated)
-            print("viewWillAppear called for FirstViewController")
-        }
-    
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        print ("viewDidAppear called for FirstVC")
-    }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        print ("viewWillDisppear for FirstVC")
-    }
-    
-    override func viewDidDisappear(_ animated: Bool) {
-        super.viewDidDisappear(animated)
-        print("viewDidDissapear for FirstVC")
-    }
-
+      
 }
 

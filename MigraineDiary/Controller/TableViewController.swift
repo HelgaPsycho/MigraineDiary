@@ -8,19 +8,8 @@
 import UIKit
 import CoreData
 
-//protocol TableViewDataSourceDelegate:  class {
-//    associatedtype MigraineEpisode: NSFetchRequestResult
-//    associatedtype Cell: UITableViewCell
-//
-//    func configure(_ cell: Cell, for migraineEpisode: MigraineEpisode)
-//}
 
 class TableViewController: UITableViewController, NSFetchedResultsControllerDelegate, Subscriber {
-    
-   
-//    typealias MigraineEpisode = Delegate.MigraineEpisode
-//    typealias Cell = Delegate.Cell
-    
     
     var dataStoreManager = DataStoreManager()
 
@@ -46,36 +35,6 @@ class TableViewController: UITableViewController, NSFetchedResultsControllerDele
         createSubscriber(subscriber: self)
 
     }
-    
-    
-    
-    //метод для проверки, можно ли вызвать функцию с tableViewController при закрывании blancViewController
-    func printTestString () {
-        print ("TalbleViewController called throw blankViewController")
-    }
-    
-    
-    override func viewWillAppear(_ animated: Bool) {
-            super.viewWillAppear(animated)
-            print("viewWillAppear called for TableViewController")
-        }
-            
-    override func viewDidAppear(_ animated: Bool) {
-           super.viewDidAppear(animated)
-           print ("viewDidAppear called for TableViewController")
-       }
-       
-       override func viewWillDisappear(_ animated: Bool) {
-           super.viewWillDisappear(animated)
-           print ("viewWillDisppear for TableViewController")
-       }
-       
-       override func viewDidDisappear(_ animated: Bool) {
-           super.viewDidDisappear(animated)
-           print("viewDidDissapear for TableViewController")
-       }
-
-   
     
     // Uncomment the following line to preserve selection between presentations
     //self.clearsSelectionOnViewWillAppear = false
@@ -218,13 +177,4 @@ class TableViewController: UITableViewController, NSFetchedResultsControllerDele
         
         
 }
-//
-//extension TableViewController {
-//
-//
-//    func update() {
-//        viewDidLoad()
-//    }
-//
-    
 }

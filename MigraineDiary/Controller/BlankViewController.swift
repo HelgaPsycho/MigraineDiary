@@ -23,11 +23,6 @@ class BlankViewController: UIViewController {
     @IBOutlet weak var intensityAfterMedicationSegmantalController: UISegmentedControl!
         
     
-   // let tableViewController = TableViewController(nibName: "ok1-8G-oqs-view-Ana-dm-MZo", bundle: .main)
-    //let tableViewController = TableViewController()
-   // let firstViewController = FirstViewController()
-    //@IBOutlet var migraineTableView: UITableView!
-    
     override func viewDidLoad() {
         
         super.viewDidLoad()
@@ -37,30 +32,7 @@ class BlankViewController: UIViewController {
         
         // Do any additional setup after loading the view.
     }
-    override func viewWillAppear(_ animated: Bool) {
-            super.viewWillAppear(animated)
-            print("viewWillAppear called for BlankViewController")
-        }
-        
-        override func viewDidAppear(_ animated: Bool) {
-            super.viewDidAppear(animated)
-            print ("viewDidAppear called for BlankViewController")
-        }
-        
-        override func viewWillDisappear(_ animated: Bool) {
-            super.viewWillDisappear(animated)
-            //вызывается при закрывании контроллера
-
-            print ("viewWillDisppear for BlankViewController")
-             //tableViewController.viewDidLoad()
-           //  tableViewController.printTestString()
-        }
-        
-        override func viewDidDisappear(_ animated: Bool) {
-            super.viewDidDisappear(animated)
-            print("viewDidDissapear for BlankViewController")
-        }
-
+   
     
     @IBAction func saveButtonPressed(_ sender: UIButton) {
 
@@ -95,20 +67,8 @@ class BlankViewController: UIViewController {
         
      dataStoreManager.saveContext()
         
-        //=======================ДОБАВИТЬ ОБНОВЛЕНИЕ TABLEVIEWCONTROLLER===========================
-        // не работает:
-        //tableViewController.viewDidLoad()
-        //   tableViewController.reloadInputViews()
-        // tableViewController.viewWillAppear(true)
-        //tableViewController.viewDidAppear(false)
-        // СВОРАЧИВАНИЕ КОНТРОЛЛЕРА ПРИ НАЖАТИИ КНОПКИ SAVE
      self.dismiss(animated: true, completion: nil)
-      //  tableViewController.dismiss(animated: true)
-      //  firstViewController.dismiss(animated: false)
-        //firstViewController.reloadInputViews()
-       // tableViewController.loadView()
-        
-        
+     
 //
 //        /*
 //         // MARK: - Navigation
