@@ -15,23 +15,24 @@ import CoreData
 //    func configure(_ cell: Cell, for migraineEpisode: MigraineEpisode)
 //}
 
-class TableViewController: UITableViewController, NSFetchedResultsControllerDelegate   {
+class TableViewController: UITableViewController, NSFetchedResultsControllerDelegate, Subscriber {
+    
    
 //    typealias MigraineEpisode = Delegate.MigraineEpisode
 //    typealias Cell = Delegate.Cell
     
     
     var dataStoreManager = DataStoreManager()
-    
+
     var migraineEpisodeArray: Array <MigraineEpisode> = []
     
     @IBOutlet var migraineTableView: UITableView!
     
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        migraineTableView.register(MigraineEpisodeCell.nib(), forCellReuseIdentifier: MigraineEpisodeCell.identifier)
+    print ("viewDidLoad called")
+        tableView.register(MigraineEpisodeCell.nib(), forCellReuseIdentifier: MigraineEpisodeCell.identifier)
         
         do {
             migraineEpisodeArray = try toObtainAndSortMigrainEpisodes() }
@@ -41,7 +42,8 @@ class TableViewController: UITableViewController, NSFetchedResultsControllerDele
         }
         catch {
         }
-    
+       // let tableViewController = TableViewController().self
+        createSubscriber(subscriber: self)
 
     }
     
@@ -107,6 +109,7 @@ class TableViewController: UITableViewController, NSFetchedResultsControllerDele
         return customCell
         
     }
+
     
     func toObtainAndSortMigrainEpisodes () throws -> [MigraineEpisode] {
         if var migraineEpisodeArray = try? dataStoreManager.obtainMigraineEpisode() {
@@ -135,23 +138,24 @@ class TableViewController: UITableViewController, NSFetchedResultsControllerDele
         }
     
     
+    
+    
+    func loadData (){
+       
+        print("loadData called")
+        tableView.register(MigraineEpisodeCell.nib(), forCellReuseIdentifier: MigraineEpisodeCell.identifier)
+        
+        do { self.migraineEpisodeArray = try toObtainAndSortMigrainEpisodes()}
+        catch { return}
+        
+        DispatchQueue.main.async {
+            self.migraineTableView.reloadData()
+        }
+       
+        
 
-    
-    
+        
     }
-    
-
-//MARK- OBSERVER
-
-extension TableViewController {
-    
-  
-}
-    
-    
-    
-    
-
 /*
  // Override to support conditional editing of the table view.
  override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
@@ -198,3 +202,29 @@ extension TableViewController {
  */
 
 
+// MARK: - PATTERN OBSERVER
+    
+    
+    func createSubscriber (subscriber: TableViewController) {
+        print ("func createSubscriber called")
+    dataStoreManager.subscribe(subscriber: subscriber)
+        print(subscriber)
+        print(DataStoreManager.subscribers.count)
+
+    }
+    func update() {
+        loadData()
+        print ("func update called")
+        
+        
+}
+//
+//extension TableViewController {
+//
+//
+//    func update() {
+//        viewDidLoad()
+//    }
+//
+    
+}

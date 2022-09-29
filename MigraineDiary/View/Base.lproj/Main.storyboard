@@ -105,7 +105,7 @@
         <!--Table View Controller-->
         <scene sceneID="2Al-qL-jH3">
             <objects>
-                <tableViewController storyboardIdentifier="&quot;tableViewController&quot;" id="ok1-8G-oqs" customClass="TableViewController" customModule="MigraineDiary" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="tableViewController" id="ok1-8G-oqs" customClass="TableViewController" customModule="MigraineDiary" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="Ana-dm-MZo" userLabel="MigraineTableView">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -131,7 +131,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sCz-vh-sxU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="459" y="846"/>
+            <point key="canvasLocation" x="-283" y="808"/>
         </scene>
         <!--Blank View Controller-->
         <scene sceneID="Hvt-5E-CIb">

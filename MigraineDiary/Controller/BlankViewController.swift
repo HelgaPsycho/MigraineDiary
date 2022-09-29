@@ -22,6 +22,7 @@ class BlankViewController: UIViewController {
     @IBOutlet weak var durationSegmentalController: UISegmentedControl!
     @IBOutlet weak var intensityAfterMedicationSegmantalController: UISegmentedControl!
         
+    
    // let tableViewController = TableViewController(nibName: "ok1-8G-oqs-view-Ana-dm-MZo", bundle: .main)
     //let tableViewController = TableViewController()
    // let firstViewController = FirstViewController()

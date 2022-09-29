@@ -9,10 +9,9 @@ import Foundation
 import CoreData
 
 class DataStoreManager {
+    
+    
     // MARK: - Core Data stack
-    
-    
-    
     lazy var persistentContainer: NSPersistentContainer = {
         let container = NSPersistentContainer(name: "MigraineDiary")
         container.loadPersistentStores(completionHandler: { (storeDescription, error) in
@@ -49,6 +48,9 @@ lazy var backgroundContext: NSManagedObjectContext = {
             do {
                 try context.save()
                 print(" ================== saveContext func ===================")
+                notifySuscribers()
+                print("\(DataStoreManager.subscribers)")
+
             } catch {
                 context.rollback()
                 let nserror = error as NSError
@@ -93,6 +95,40 @@ lazy var backgroundContext: NSManagedObjectContext = {
             
         }
     }
+    // MARK: - //PATTERN OBSERVER
+    
+    static var subscribers: [Subscriber] = []
+    
+    func notifySuscribers () {
+        print("subscriber notifyed")
+        print (DataStoreManager.subscribers.count)
+        for subscriber in DataStoreManager.subscribers {
+            subscriber.update()
+
+        }
+       
+    }
+}
+
+
+extension DataStoreManager {
+    func subscribe(subscriber: Subscriber){
+        DataStoreManager.subscribers.append(subscriber)
+        print("subscriber added")
+        print(DataStoreManager.subscribers)
+    }
+
+    func unsubscribe(subscriber: (Subscriber) -> (Bool)) {
+        guard let index = DataStoreManager.subscribers.firstIndex(where: subscriber)
+        else {return}
+        DataStoreManager.subscribers.remove(at: index)
+    }
+
+}
+
+
+protocol Subscriber {
+    func update()
 }
 
 // MARK: - DataStoreManagerErrors -
