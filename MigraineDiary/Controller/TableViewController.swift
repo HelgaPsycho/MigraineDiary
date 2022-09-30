@@ -31,8 +31,7 @@ class TableViewController: UITableViewController, NSFetchedResultsControllerDele
         }
         catch {
         }
-       // let tableViewController = TableViewController().self
-        createSubscriber(subscriber: self)
+        dataStoreManager.subscribe(subscriber: self)
 
     }
     
@@ -163,14 +162,6 @@ class TableViewController: UITableViewController, NSFetchedResultsControllerDele
 
 // MARK: - PATTERN OBSERVER
     
-    
-    func createSubscriber (subscriber: TableViewController) {
-        print ("func createSubscriber called")
-    dataStoreManager.subscribe(subscriber: subscriber)
-        print(subscriber)
-        print(DataStoreManager.subscribers.count)
-
-    }
     func update() {
         loadData()
         print ("func update called")
