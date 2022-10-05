@@ -15,6 +15,8 @@ class TableViewController: UITableViewController, NSFetchedResultsControllerDele
 
     var migraineEpisodeArray: Array <MigraineEpisode> = []
     
+    var selectedMigraineEpisode = MigraineEpisode ()
+    
     @IBOutlet var migraineTableView: UITableView!
     
     
@@ -95,7 +97,27 @@ class TableViewController: UITableViewController, NSFetchedResultsControllerDele
             
         }
     
+    //ПЕРЕХОД ИЗ ЯЧЕЙКИ НА КОНТРОЛЛЕР С РАЗВЕРНУТОЙ ИНФОРМАЦИЕЙ ОБ ЭПИЗОДЕ МИГРЕНИ
     
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.performSegue(withIdentifier: "segueToInformationViewController", sender: self)
+        do {
+            selectedMigraineEpisode = try dataStoreManager.obtainOneMigraineEpisode(date: migraineEpisodeArray[indexPath.row].date!)
+        }
+        catch {
+            print ("ERROR in TablieViewController with find migraine episode")
+        }
+
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "segueToInformationViewController" {
+            let destinationVC = segue.destination as! InformationViewController
+            destinationVC.selectedMigrainEpisode = selectedMigraineEpisode
+        
+        
+        }
+    }
     
     
     func loadData (){

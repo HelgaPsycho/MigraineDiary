@@ -73,6 +73,23 @@ lazy var backgroundContext: NSManagedObjectContext = {
         }
     }
     
+    func obtainOneMigraineEpisode (date: Date) throws -> MigraineEpisode {
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "MigraineEpisode")
+        fetchRequest.predicate = NSPredicate(format: "date = %@", date as CVarArg)
+        
+        if let migraineEpisodes = try tableViewContext.fetch(fetchRequest) as? [MigraineEpisode],
+           !migraineEpisodes.isEmpty
+        {
+            let migraineEpisode = migraineEpisodes.first 
+            
+            return migraineEpisode!
+            
+        } else {
+            print("DataStroreManager.obtainOneMigraineEpisode ERROR")
+            throw DataStoreManagerErrors.emptyDataBase
+        }
+    }
+    
    
 
     //UPDATE

@@ -29,9 +29,7 @@ class MigraineEpisodeCell: UITableViewCell {
         let formatedDate = dateFormatter.string(from: date)
         return formatedDate
     }
-    
-    
-    
+        
     @IBOutlet weak var dateLabel: UILabel!
     
     @IBOutlet weak var medicationLabel: UILabel!
