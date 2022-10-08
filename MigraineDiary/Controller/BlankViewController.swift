@@ -26,7 +26,7 @@ class BlankViewController: UIViewController {
     override func viewDidLoad() {
         
         super.viewDidLoad()
-        print("viewDidLoad called for BlankViewController")
+    
         
     
         

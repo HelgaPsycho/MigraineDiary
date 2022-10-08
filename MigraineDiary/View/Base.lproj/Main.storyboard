@@ -310,13 +310,16 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="613"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="38" translatesAutoresizingMaskIntoConstraints="NO" id="wLS-OX-dhe">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="squeredPaper" translatesAutoresizingMaskIntoConstraints="NO" id="v7d-KN-x8l">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="613"/>
+                            </imageView>
+                            <stackView opaque="NO" contentMode="scaleAspectFill" axis="vertical" distribution="fillProportionally" spacing="38" translatesAutoresizingMaskIntoConstraints="NO" id="wLS-OX-dhe">
                                 <rect key="frame" x="30" y="30" width="354" height="553"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Information about Migraine Episode" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mkm-2l-dAn">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Information about Migraine Episode" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="12" adjustsLetterSpacingToFitWidth="YES" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mkm-2l-dAn">
                                         <rect key="frame" x="0.0" y="0.0" width="354" height="19.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="23"/>
-                                        <color key="textColor" systemColor="systemBlueColor"/>
+                                        <color key="textColor" systemColor="systemRedColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1bC-KZ-sSm">
@@ -332,13 +335,13 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Aura" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RY2-JA-TCO">
-                                        <rect key="frame" x="0.0" y="170" width="354" height="18"/>
+                                        <rect key="frame" x="0.0" y="170" width="354" height="18.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Intensity" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LDu-pG-Q9e">
-                                        <rect key="frame" x="0.0" y="226" width="354" height="18.5"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Intensity:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LDu-pG-Q9e">
+                                        <rect key="frame" x="0.0" y="226.5" width="354" height="18"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -354,11 +357,11 @@
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Duration" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="boD-YV-cHe">
                                         <rect key="frame" x="0.0" y="430" width="354" height="9"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Intensity after medication" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="svi-al-jkp">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Intensity after medication:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="svi-al-jkp">
                                         <rect key="frame" x="0.0" y="477" width="354" height="0.0"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                         <nil key="textColor"/>
@@ -382,7 +385,7 @@
                                         </buttonConfiguration>
                                         <connections>
                                             <action selector="changeButtonPressed:" destination="A45-D0-cwO" eventType="touchUpInside" id="4e9-zg-Eet"/>
-                                            <segue destination="F3r-BM-rKB" kind="show" id="tGa-v4-AXx"/>
+                                            <segue destination="F3r-BM-rKB" kind="show" identifier="changeBlankSegue" id="tGa-v4-AXx"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -394,8 +397,12 @@
                         <viewLayoutGuide key="safeArea" id="LHV-QR-Vxr"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="v7d-KN-x8l" firstAttribute="leading" secondItem="zWw-Tg-4pf" secondAttribute="leading" id="8QN-B7-RKL"/>
+                            <constraint firstItem="v7d-KN-x8l" firstAttribute="top" secondItem="zWw-Tg-4pf" secondAttribute="top" id="8Ym-JD-gfn"/>
+                            <constraint firstAttribute="bottom" secondItem="v7d-KN-x8l" secondAttribute="bottom" id="Fe2-FH-hf9"/>
                             <constraint firstAttribute="bottom" secondItem="wLS-OX-dhe" secondAttribute="bottom" constant="30" id="GYv-YO-BCb"/>
                             <constraint firstItem="LHV-QR-Vxr" firstAttribute="trailing" secondItem="wLS-OX-dhe" secondAttribute="trailing" constant="30" id="aBK-a0-6GF"/>
+                            <constraint firstAttribute="trailing" secondItem="v7d-KN-x8l" secondAttribute="trailing" id="d49-ps-gdI"/>
                             <constraint firstItem="wLS-OX-dhe" firstAttribute="leading" secondItem="LHV-QR-Vxr" secondAttribute="leading" constant="30" id="h6i-1s-SoK"/>
                             <constraint firstItem="wLS-OX-dhe" firstAttribute="top" secondItem="zWw-Tg-4pf" secondAttribute="top" constant="30" id="hHN-lm-sMv"/>
                         </constraints>
@@ -405,9 +412,9 @@
                         <outlet property="auraLabel" destination="RY2-JA-TCO" id="bs5-GZ-JqF"/>
                         <outlet property="dateLabel" destination="1bC-KZ-sSm" id="L6j-3R-gsm"/>
                         <outlet property="durationLabel" destination="boD-YV-cHe" id="jbE-KZ-wcr"/>
-                        <outlet property="intensityAfterMaedicationView" destination="a0H-Tx-otS" id="jE2-YL-5Db"/>
-                        <outlet property="intevsityView" destination="8bL-tl-G7j" id="u73-Nr-fXU"/>
-                        <outlet property="medicationView" destination="5H1-r2-cgq" id="Emn-dv-68o"/>
+                        <outlet property="intensityAfterMedicationView" destination="a0H-Tx-otS" id="Fsk-pf-MSA"/>
+                        <outlet property="intensityView" destination="8bL-tl-G7j" id="HzE-GN-ZN1"/>
+                        <outlet property="medicationLabel" destination="5H1-r2-cgq" id="vlu-ca-LUU"/>
                         <outlet property="triggerLabel" destination="jV1-id-WZh" id="pP3-CN-1aq"/>
                     </connections>
                 </viewController>
@@ -415,10 +422,10 @@
             </objects>
             <point key="canvasLocation" x="439" y="782"/>
         </scene>
-        <!--View Controller-->
+        <!--Change Blank View Controller-->
         <scene sceneID="VfF-wo-fEs">
             <objects>
-                <viewController id="F3r-BM-rKB" sceneMemberID="viewController">
+                <viewController id="F3r-BM-rKB" customClass="ChangeBlankViewController" customModule="MigraineDiary" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="CoA-Th-NTo">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="613"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -550,6 +557,7 @@
                                                 <buttonConfiguration key="configuration" style="plain" title="SAVE"/>
                                                 <connections>
                                                     <action selector="saveButtonPressed:" destination="oaJ-ar-F65" eventType="touchUpInside" id="D0M-GW-WE3"/>
+                                                    <action selector="saveButtonPressed:" destination="F3r-BM-rKB" eventType="touchUpInside" id="han-4L-Om3"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -567,6 +575,15 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="MaG-sb-Rrc"/>
+                    <connections>
+                        <outlet property="auraSegmentedControl" destination="mwc-kL-bW2" id="Sb3-wu-gQp"/>
+                        <outlet property="datePicker" destination="JXW-Jt-jTo" id="R7l-oh-SiH"/>
+                        <outlet property="durationSegmentedControl" destination="bZn-xX-gAE" id="lf4-yw-meO"/>
+                        <outlet property="intensityAfterMedicationSegmentalControl" destination="7ge-kM-C97" id="Lsi-Pv-Nd6"/>
+                        <outlet property="intensitySegmentalControl" destination="4ta-wd-FeR" id="uXc-j7-A4Q"/>
+                        <outlet property="medicationTextField" destination="pP8-bf-nQr" id="jvl-p9-9gg"/>
+                        <outlet property="triggersLabel" destination="IoM-aW-mme" id="LI2-fK-bwC"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2Dw-sM-Bd6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -578,14 +595,15 @@
         <image name="doc.text" catalog="system" width="115" height="128"/>
         <image name="gearshape.2" catalog="system" width="128" height="100"/>
         <image name="plus.app" catalog="system" width="128" height="114"/>
+        <image name="squeredPaper" width="690" height="930.5"/>
         <systemColor name="linkColor">
             <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
-        <systemColor name="systemBlueColor">
-            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        <systemColor name="systemRedColor">
+            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

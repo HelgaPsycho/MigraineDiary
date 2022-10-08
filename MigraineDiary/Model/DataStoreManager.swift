@@ -25,16 +25,16 @@ class DataStoreManager {
 
  
 lazy var blankViewContext: NSManagedObjectContext = {
-print ("======================= blankViewContext func===========================")
+//print ("======================= blankViewContext func===========================")
     return persistentContainer.viewContext
         
     }()
     
     lazy var  tableViewContext: NSManagedObjectContext = {
-        print  ("======================= tableViewContext func===========================")
+        //print  ("======================= tableViewContext func===========================")
         return persistentContainer.viewContext
     }()
-
+    
 lazy var backgroundContext: NSManagedObjectContext = {
     return persistentContainer.newBackgroundContext()
     } ()
@@ -47,7 +47,7 @@ lazy var backgroundContext: NSManagedObjectContext = {
         if context.hasChanges {
             do {
                 try context.save()
-                print(" ================== saveContext func ===================")
+               // print(" ================== saveContext func ===================")
                 notifySuscribers()
                 print("\(DataStoreManager.subscribers)")
 
@@ -68,7 +68,7 @@ lazy var backgroundContext: NSManagedObjectContext = {
            !migraineEpisodes.isEmpty {
             return migraineEpisodes
         } else {
-            print ("DataStroreManager.obtainMigraineEpisode ERROR")
+          //  print ("DataStroreManager.obtainMigraineEpisode ERROR")
             throw DataStoreManagerErrors.emptyDataBase
         }
     }
@@ -93,6 +93,8 @@ lazy var backgroundContext: NSManagedObjectContext = {
    
 
     //UPDATE
+
+    
     
     //DELETE
     
@@ -112,13 +114,21 @@ lazy var backgroundContext: NSManagedObjectContext = {
             
         }
     }
+    
+    
+    func deleteMigraineEpisose (migraineEpisode: MigraineEpisode) {
+        tableViewContext.delete(migraineEpisode)
+        
+        try? tableViewContext.save()
+        
+    }
     // MARK: - //PATTERN OBSERVER
     
     static var subscribers: [Subscriber] = []
     
     func notifySuscribers () {
-        print("subscriber notifyed")
-        print (DataStoreManager.subscribers.count)
+      //  print("subscriber notifyed")
+        //print (DataStoreManager.subscribers.count)
         for subscriber in DataStoreManager.subscribers {
             subscriber.update()
 
@@ -131,8 +141,8 @@ lazy var backgroundContext: NSManagedObjectContext = {
 extension DataStoreManager {
     func subscribe(subscriber: Subscriber){
         DataStoreManager.subscribers.append(subscriber)
-        print("subscriber added")
-        print(DataStoreManager.subscribers)
+      //  print("subscriber added")
+       // print(DataStoreManager.subscribers)
     }
 
     func unsubscribe(subscriber: (Subscriber) -> (Bool)) {

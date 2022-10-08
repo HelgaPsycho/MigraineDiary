@@ -22,7 +22,7 @@ class TableViewController: UITableViewController, NSFetchedResultsControllerDele
     
     override func viewDidLoad() {
         super.viewDidLoad()
-    print ("viewDidLoad called")
+
         tableView.register(MigraineEpisodeCell.nib(), forCellReuseIdentifier: MigraineEpisodeCell.identifier)
         
         do {
@@ -100,21 +100,27 @@ class TableViewController: UITableViewController, NSFetchedResultsControllerDele
     //ПЕРЕХОД ИЗ ЯЧЕЙКИ НА КОНТРОЛЛЕР С РАЗВЕРНУТОЙ ИНФОРМАЦИЕЙ ОБ ЭПИЗОДЕ МИГРЕНИ
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        self.performSegue(withIdentifier: "segueToInformationViewController", sender: self)
         do {
             selectedMigraineEpisode = try dataStoreManager.obtainOneMigraineEpisode(date: migraineEpisodeArray[indexPath.row].date!)
         }
         catch {
             print ("ERROR in TablieViewController with find migraine episode")
         }
+        print (selectedMigraineEpisode)
+        self.performSegue(withIdentifier: "segueToInformationViewController", sender: self)
+        
+        tableView.deselectRow(at: indexPath, animated: true)
+
 
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        print("================prepareForeSegue=========================")
+        print (selectedMigraineEpisode)
         if segue.identifier == "segueToInformationViewController" {
             let destinationVC = segue.destination as! InformationViewController
-            destinationVC.selectedMigrainEpisode = selectedMigraineEpisode
-        
+            destinationVC.migraineEpisode = selectedMigraineEpisode
+
         
         }
     }
@@ -122,7 +128,6 @@ class TableViewController: UITableViewController, NSFetchedResultsControllerDele
     
     func loadData (){
        
-        print("loadData called")
         tableView.register(MigraineEpisodeCell.nib(), forCellReuseIdentifier: MigraineEpisodeCell.identifier)
         
         do { self.migraineEpisodeArray = try toObtainAndSortMigrainEpisodes()}
@@ -186,7 +191,7 @@ class TableViewController: UITableViewController, NSFetchedResultsControllerDele
     
     func update() {
         loadData()
-        print ("func update called")
+    
         
         
 }

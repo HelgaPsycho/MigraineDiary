@@ -7,9 +7,12 @@
 
 import UIKit
 
-class InformationViewController: UIViewController {
+class InformationViewController: UIViewController, Subscriber {
+        
+    var migraineEpisode: MigraineEpisode!
     
-    var selectedMigrainEpisode: MigraineEpisode?
+    var dataStoreManager = DataStoreManager()
+    
 
     @IBOutlet weak var dateLabel: UILabel!
     
@@ -17,24 +20,74 @@ class InformationViewController: UIViewController {
     
     @IBOutlet weak var auraLabel: UILabel!
     
-    @IBOutlet weak var intevsityView: UIImageView!
+    @IBOutlet weak var intensityView: UIImageView!
     
-    @IBOutlet weak var medicationView: UILabel!
+    @IBOutlet weak var medicationLabel: UILabel!
     
     @IBOutlet weak var durationLabel: UILabel!
+
+    @IBOutlet weak var intensityAfterMedicationView: UIImageView!
     
-    @IBOutlet weak var intensityAfterMaedicationView: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print (selectedMigrainEpisode)
-        // Do any additional setup after loading the view.
+        
+        dataStoreManager.subscribe(subscriber: self)
+        
+         getOutletsValue()
+         
+        print("======================subscribers: \(DataStoreManager.subscribers)====================")
     }
+    
     
     @IBAction func changeButtonPressed(_ sender: UIButton) {
+        
     }
     
+    func formateDateToString (date: Date) -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd.MM.yyyy HH:mm"
+        let formatedDate = dateFormatter.string(from: date)
+        return formatedDate
+    }
     
+    func getOutletsValue () {
+        dateLabel.text = "Date: \(formateDateToString(date: migraineEpisode.date!))"
+        
+        var triggers: String
+        if migraineEpisode.triggers == "" {
+            triggers = "No"
+        }  else {
+            triggers = migraineEpisode.triggers!
+        }
+        triggerLabel.text = "Triggers: \(triggers)"
+        
+        let aura: String = migraineEpisode.aura ? "Yes" : "No"
+        auraLabel.text = "Aura: \(aura)"
+        
+        intensityView.image = UIImage(imageLiteralResourceName: "\(migraineEpisode!.intensity)")
+        
+        var medication: String
+        if migraineEpisode.medication == "" {
+            medication = "No"
+        }  else {
+            medication = migraineEpisode.medication!
+        }
+        medicationLabel.text = "Medication: \(medication)"
+        
+        durationLabel.text = "Duration: \(migraineEpisode.dutation!) hours"
+        
+        intensityAfterMedicationView.image = UIImage(imageLiteralResourceName: "\(migraineEpisode!.intensityAfterMadication)")
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "changeBlankSegue" {
+            let destinationVC = segue.destination as! ChangeBlankViewController
+            destinationVC.migraineEpisode = migraineEpisode
+
+        
+        }
+    }
 
     /*
     // MARK: - Navigation
@@ -46,4 +99,13 @@ class InformationViewController: UIViewController {
     }
     */
 
+    func update() {
+        
+        getOutletsValue()
+    
+    }
+    
+    
 }
+
+
