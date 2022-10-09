@@ -60,7 +60,7 @@ class BlankViewController: UIViewController {
         case 4 :
             migraineEpisode.dutation = "> 24"
         default:
-            print("Duration of Migrain Episode 0 - 2 hours")
+            migraineEpisode.dutation = "0 - 2"
         }
         
         migraineEpisode.intensityAfterMadication = Int16(intensityAfterMedicationSegmantalController.selectedSegmentIndex + 1)

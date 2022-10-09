@@ -9,8 +9,8 @@ import UIKit
 
 class ChangeBlankViewController: UIViewController {
 
-    @objc var migraineEpisode: MigraineEpisode!
-    var dataStoreManager = DataStoreManager()
+    var migraineEpisode: MigraineEpisode!
+    var dataStoreManager: DataStoreManager!
     
     @IBOutlet weak var datePicker: UIDatePicker!
     @IBOutlet weak var triggersLabel: UITextField!
@@ -73,41 +73,38 @@ class ChangeBlankViewController: UIViewController {
     
     @IBAction func saveButtonPressed(_ sender: UIButton) {
         
-       // let migraineEpisode = MigraineEpisode(context: dataStoreManager.blankViewContext)
+        migraineEpisode.setValue(datePicker.date, forKey: #keyPath(MigraineEpisode.date))
         
-       // migraineEpisode.setValue(datePicker.date, forKey: #keyPath(MigraineEpisode.date))
-       migraineEpisode.date = datePicker.date
-        migraineEpisode.triggers = textFieldDidEndEditing(triggersLabel)
+        migraineEpisode.setValue(textFieldDidEndEditing(triggersLabel), forKey: #keyPath(MigraineEpisode.triggers))
+        
       if auraSegmentedControl.selectedSegmentIndex == 0 {
-            migraineEpisode.aura = false
-        } else { migraineEpisode.aura = true }
-        migraineEpisode.setValue(Int16(intensitySegmentalControl.selectedSegmentIndex + 1), forKey: #keyPath(MigraineEpisode.intensity))
-      //  migraineEpisode.intensity = Int16(intensitySegmentalControl.selectedSegmentIndex + 1)
+          migraineEpisode.setValue(false, forKey: #keyPath(MigraineEpisode.aura))
+        } else { migraineEpisode.setValue(true, forKey: #keyPath(MigraineEpisode.aura)) }
         
+        migraineEpisode.setValue(Int16(intensitySegmentalControl.selectedSegmentIndex + 1), forKey: #keyPath(MigraineEpisode.intensity))
         
         migraineEpisode.setValue(textFieldDidEndEditing(medicationTextField), forKey: #keyPath(MigraineEpisode.medication))
-       // migraineEpisode.medication = textFieldDidEndEditing(medicationTextField)
-
+        
         switch durationSegmentedControl.selectedSegmentIndex {
         case 0 :
-            migraineEpisode.dutation = "0 - 2"
+            migraineEpisode.setValue("0 - 2", forKey: #keyPath(MigraineEpisode.dutation))
         case 1 :
-            migraineEpisode.dutation = "2 - 6"
+            migraineEpisode.setValue("2 - 6", forKey: #keyPath(MigraineEpisode.dutation))
         case 2 :
-            migraineEpisode.dutation = "6 - 12"
+            migraineEpisode.setValue("6 - 12", forKey: #keyPath(MigraineEpisode.dutation))
         case 3 :
-            migraineEpisode.dutation = "12 - 24"
+            migraineEpisode.setValue("12 - 24", forKey: #keyPath(MigraineEpisode.dutation))
         case 4 :
-            migraineEpisode.dutation = "> 24"
+            migraineEpisode.setValue("> 24", forKey: #keyPath(MigraineEpisode.dutation))
         default:
             print("Duration of Migrain Episode 0 - 2 hours")
         }
 
-        migraineEpisode.intensityAfterMadication = Int16(intensityAfterMedicationSegmentalControl.selectedSegmentIndex + 1)
+        migraineEpisode.setValue(intensityAfterMedicationSegmentalControl.selectedSegmentIndex + 1,
+ forKey: #keyPath(MigraineEpisode.intensityAfterMadication))
+    
 
-        
-        dataStoreManager.saveContext()
-        
+        dataStoreManager.saveContext()        
         dataStoreManager.notifySuscribers ()
         
        // dataStoreManager.updateMigraineEpisode(migraineEpisode: migraineEpisode)

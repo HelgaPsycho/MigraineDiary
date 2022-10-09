@@ -11,7 +11,7 @@ class InformationViewController: UIViewController, Subscriber {
         
     var migraineEpisode: MigraineEpisode!
     
-    var dataStoreManager = DataStoreManager()
+    var dataStoreManager: DataStoreManager!
     
 
     @IBOutlet weak var dateLabel: UILabel!
@@ -36,7 +36,6 @@ class InformationViewController: UIViewController, Subscriber {
         
          getOutletsValue()
          
-        print("======================subscribers: \(DataStoreManager.subscribers)====================")
     }
     
     
@@ -78,12 +77,14 @@ class InformationViewController: UIViewController, Subscriber {
         durationLabel.text = "Duration: \(migraineEpisode.dutation!) hours"
         
         intensityAfterMedicationView.image = UIImage(imageLiteralResourceName: "\(migraineEpisode!.intensityAfterMadication)")
+        
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "changeBlankSegue" {
             let destinationVC = segue.destination as! ChangeBlankViewController
             destinationVC.migraineEpisode = migraineEpisode
+            destinationVC.dataStoreManager = dataStoreManager
 
         
         }

@@ -107,19 +107,22 @@ class TableViewController: UITableViewController, NSFetchedResultsControllerDele
             print ("ERROR in TablieViewController with find migraine episode")
         }
         print (selectedMigraineEpisode)
+        
+      //  selectedMigraineEpisode.setValue("BANANA", forKey: #keyPath(MigraineEpisode.medication))
         self.performSegue(withIdentifier: "segueToInformationViewController", sender: self)
         
-        tableView.deselectRow(at: indexPath, animated: true)
+        
+       tableView.deselectRow(at: indexPath, animated: true)
 
 
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        print("================prepareForeSegue=========================")
-        print (selectedMigraineEpisode)
+    
         if segue.identifier == "segueToInformationViewController" {
             let destinationVC = segue.destination as! InformationViewController
             destinationVC.migraineEpisode = selectedMigraineEpisode
+            destinationVC.dataStoreManager = dataStoreManager
 
         
         }

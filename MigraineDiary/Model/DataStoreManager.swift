@@ -10,7 +10,7 @@ import CoreData
 
 class DataStoreManager {
     
-    
+    let appDelegate = AppDelegate ()
     // MARK: - Core Data stack
     lazy var persistentContainer: NSPersistentContainer = {
         let container = NSPersistentContainer(name: "MigraineDiary")
@@ -35,10 +35,15 @@ lazy var blankViewContext: NSManagedObjectContext = {
         return persistentContainer.viewContext
     }()
     
+    lazy var changeViewContext: NSManagedObjectContext = {
+        return persistentContainer.viewContext
+    }()
+    
 lazy var backgroundContext: NSManagedObjectContext = {
     return persistentContainer.newBackgroundContext()
     } ()
     
+
 // MARK: - CRUD -
     
     //  CREATE AND SAVE
@@ -47,10 +52,8 @@ lazy var backgroundContext: NSManagedObjectContext = {
         if context.hasChanges {
             do {
                 try context.save()
-               // print(" ================== saveContext func ===================")
                 notifySuscribers()
-                print("\(DataStoreManager.subscribers)")
-
+    
             } catch {
                 context.rollback()
                 let nserror = error as NSError
