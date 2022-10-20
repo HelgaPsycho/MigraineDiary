@@ -14,18 +14,22 @@ class InformationViewController: UIViewController, Subscriber {
     var dataStoreManager: DataStoreManager!
     
 
+    @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
     
     @IBOutlet weak var triggerLabel: UILabel!
     
     @IBOutlet weak var auraLabel: UILabel!
     
+    @IBOutlet weak var intensityLabel: UILabel!
     @IBOutlet weak var intensityView: UIImageView!
     
     @IBOutlet weak var medicationLabel: UILabel!
     
     @IBOutlet weak var durationLabel: UILabel!
-
+    
+    @IBOutlet weak var intensityAfterMedicationLabel: UILabel!
+    
     @IBOutlet weak var intensityAfterMedicationView: UIImageView!
     
     
@@ -33,6 +37,8 @@ class InformationViewController: UIViewController, Subscriber {
         super.viewDidLoad()
         
         dataStoreManager.subscribe(subscriber: self)
+        
+        
         
          getOutletsValue()
          
@@ -51,32 +57,19 @@ class InformationViewController: UIViewController, Subscriber {
     }
     
     func getOutletsValue () {
-        dateLabel.text = "Date: \(formateDateToString(date: migraineEpisode.date!))"
         
-        var triggers: String
-        if migraineEpisode.triggers == "" {
-            triggers = "No"
-        }  else {
-            triggers = migraineEpisode.triggers!
-        }
-        triggerLabel.text = "Triggers: \(triggers)"
+        let presenter = InformationViewControllerPresenter (migraineEpisode: migraineEpisode)
         
-        let aura: String = migraineEpisode.aura ? "Yes" : "No"
-        auraLabel.text = "Aura: \(aura)"
-        
-        intensityView.image = UIImage(imageLiteralResourceName: "\(migraineEpisode!.intensity)")
-        
-        var medication: String
-        if migraineEpisode.medication == "" {
-            medication = "No"
-        }  else {
-            medication = migraineEpisode.medication!
-        }
-        medicationLabel.text = "Medication: \(medication)"
-        
-        durationLabel.text = "Duration: \(migraineEpisode.dutation!) hours"
-        
-        intensityAfterMedicationView.image = UIImage(imageLiteralResourceName: "\(migraineEpisode!.intensityAfterMadication)")
+        titleLabel.text = presenter.title
+        dateLabel.text = presenter.dateLabelText
+        triggerLabel.text = presenter.triggersLabelText
+        auraLabel.text = presenter.auraLabelText
+        intensityLabel.text = presenter.intensityLabelText
+        intensityView.image = presenter.intensityView
+        medicationLabel.text = presenter.medicationLabelText
+        durationLabel.text = presenter.durationLabelText
+        intensityAfterMedicationLabel.text = presenter.intensityAfterMedicationLabelText
+        intensityAfterMedicationView.image = presenter.intensityAfterMedicationView
         
     }
     

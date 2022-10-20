@@ -47,6 +47,9 @@
                                                     <imageReference key="image" image="gearshape.2" catalog="system" symbolScale="large"/>
                                                     <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" configurationType="pointSize" pointSize="45"/>
                                                 </buttonConfiguration>
+                                                <connections>
+                                                    <action selector="settingsButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="APy-o0-nsJ"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="niK-yY-8n8">
                                                 <rect key="frame" x="134.5" y="0.0" width="105" height="71.5"/>
@@ -97,6 +100,9 @@
                             <constraint firstItem="HvC-ey-3To" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="qpX-xL-T1T"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="AppName" destination="Lnx-zV-bl5" id="cdi-lJ-w88"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -291,10 +297,16 @@
                     <connections>
                         <outlet property="auraSegmentalController" destination="G8H-HV-vIJ" id="urz-LK-eTP"/>
                         <outlet property="datePicker" destination="y8h-et-i53" id="Wre-6V-C9W"/>
+                        <outlet property="durationLabel" destination="spS-Yt-kFl" id="bh2-Zg-uf4"/>
                         <outlet property="durationSegmentalController" destination="2f3-BW-qy6" id="Le4-h5-UB9"/>
+                        <outlet property="intensityAfterMedicationLabel" destination="aOu-RI-nTO" id="jTs-Rd-8fM"/>
                         <outlet property="intensityAfterMedicationSegmantalController" destination="XNa-XX-LWu" id="0vS-5e-CmT"/>
+                        <outlet property="intensityLabel" destination="o7H-4i-45z" id="BiX-gt-8zR"/>
                         <outlet property="intensitySegmentalController" destination="cN5-P1-Foo" id="Lz9-v5-aCP"/>
+                        <outlet property="medicationLabel" destination="cox-K7-t7v" id="LNa-e1-DKY"/>
                         <outlet property="medicationTextField" destination="kqG-Yj-gdC" id="wrK-px-cAs"/>
+                        <outlet property="migraineEpisodeBlankTitle" destination="d0T-Jr-im9" id="wBe-Q0-y7D"/>
+                        <outlet property="triggerLabel" destination="OzL-Od-zMp" id="ieY-xO-2fI"/>
                         <outlet property="triggersTextField" destination="xbl-kQ-2eQ" id="Wrg-Vo-eAT"/>
                     </connections>
                 </viewController>
@@ -412,9 +424,12 @@
                         <outlet property="auraLabel" destination="RY2-JA-TCO" id="bs5-GZ-JqF"/>
                         <outlet property="dateLabel" destination="1bC-KZ-sSm" id="L6j-3R-gsm"/>
                         <outlet property="durationLabel" destination="boD-YV-cHe" id="jbE-KZ-wcr"/>
+                        <outlet property="intensityAfterMedicationLabel" destination="svi-al-jkp" id="PMs-bl-KFK"/>
                         <outlet property="intensityAfterMedicationView" destination="a0H-Tx-otS" id="Fsk-pf-MSA"/>
+                        <outlet property="intensityLabel" destination="LDu-pG-Q9e" id="bha-MC-EFM"/>
                         <outlet property="intensityView" destination="8bL-tl-G7j" id="HzE-GN-ZN1"/>
                         <outlet property="medicationLabel" destination="5H1-r2-cgq" id="vlu-ca-LUU"/>
+                        <outlet property="titleLabel" destination="mkm-2l-dAn" id="bpj-l9-vUf"/>
                         <outlet property="triggerLabel" destination="jV1-id-WZh" id="pP3-CN-1aq"/>
                     </connections>
                 </viewController>
@@ -578,10 +593,16 @@
                     <connections>
                         <outlet property="auraSegmentedControl" destination="mwc-kL-bW2" id="Sb3-wu-gQp"/>
                         <outlet property="datePicker" destination="JXW-Jt-jTo" id="R7l-oh-SiH"/>
+                        <outlet property="durationLabel" destination="fHV-lr-FPD" id="Qg4-BN-84K"/>
                         <outlet property="durationSegmentedControl" destination="bZn-xX-gAE" id="lf4-yw-meO"/>
+                        <outlet property="intensityAfterMedicationLabel" destination="G1J-Mq-Fzw" id="bBz-qB-IRl"/>
                         <outlet property="intensityAfterMedicationSegmentalControl" destination="7ge-kM-C97" id="Lsi-Pv-Nd6"/>
+                        <outlet property="intensityLabel" destination="GKB-XD-w9G" id="xsQ-AW-8S7"/>
                         <outlet property="intensitySegmentalControl" destination="4ta-wd-FeR" id="uXc-j7-A4Q"/>
+                        <outlet property="medicationLabel" destination="Cj0-uh-hIs" id="SPb-Ll-vne"/>
                         <outlet property="medicationTextField" destination="pP8-bf-nQr" id="jvl-p9-9gg"/>
+                        <outlet property="migraineEpisodeBlankTitle" destination="zy4-7x-pIX" id="fbc-t4-qAv"/>
+                        <outlet property="triggerLabel" destination="po1-Ha-qbJ" id="0lV-0P-QhS"/>
                         <outlet property="triggersLabel" destination="IoM-aW-mme" id="LI2-fK-bwC"/>
                     </connections>
                 </viewController>

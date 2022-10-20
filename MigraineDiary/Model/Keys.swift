@@ -6,7 +6,21 @@
 //
 
 import Foundation
- 
-struct K {
+
+
+struct Keys {
     
+    //UserSettings.language
+    
+    static var appName: String {
+        get
+        { if (UserSettings.language == nil) || (UserSettings.language == "eng")
+            {return "Migrain Diary"} else {
+                return "Дневник Мигрени"
+            }
+        }
+    }
+
 }
+
+

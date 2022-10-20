@@ -13,13 +13,23 @@ class BlankViewController: UIViewController {
     var dataStoreManager = DataStoreManager()
     
     
+    @IBOutlet weak var migraineEpisodeBlankTitle: UILabel!
+    
+    
     @IBOutlet weak var datePicker: UIDatePicker!
+    
 
+    @IBOutlet weak var triggerLabel: UILabel!
     @IBOutlet weak var triggersTextField: UITextField!
     @IBOutlet weak var auraSegmentalController: UISegmentedControl!
+    @IBOutlet weak var intensityLabel: UILabel!
     @IBOutlet weak var intensitySegmentalController: UISegmentedControl!
+    
+    @IBOutlet weak var medicationLabel: UILabel!
     @IBOutlet weak var medicationTextField: UITextField!
+    @IBOutlet weak var durationLabel: UILabel!
     @IBOutlet weak var durationSegmentalController: UISegmentedControl!
+    @IBOutlet weak var intensityAfterMedicationLabel: UILabel!
     @IBOutlet weak var intensityAfterMedicationSegmantalController: UISegmentedControl!
         
     
@@ -27,8 +37,23 @@ class BlankViewController: UIViewController {
         
         super.viewDidLoad()
     
+        let presenter = BlankViewControllerPresenter()
         
-    
+        migraineEpisodeBlankTitle.text = presenter.migrainEpisodeBlank
+        triggerLabel.text = presenter.triggers
+        
+        let noAuraString: String = presenter.noAura
+        let auraString: String = presenter.withAura
+        auraSegmentalController.setTitle(noAuraString, forSegmentAt: 0)
+        auraSegmentalController.setTitle(auraString, forSegmentAt: 1)
+        intensityLabel.text = presenter.intensity
+        medicationLabel.text = presenter.medication
+        durationLabel.text = presenter.durationInHours
+        intensityAfterMedicationLabel.text = presenter.intensityAfterMedication
+        
+        
+       // auraSegmentalController.titleForSegment(at: 1) = auraString
+        
         
         // Do any additional setup after loading the view.
     }

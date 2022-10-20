@@ -12,19 +12,41 @@ class ChangeBlankViewController: UIViewController {
     var migraineEpisode: MigraineEpisode!
     var dataStoreManager: DataStoreManager!
     
+    @IBOutlet weak var migraineEpisodeBlankTitle: UILabel!
     @IBOutlet weak var datePicker: UIDatePicker!
+    
+    @IBOutlet weak var triggerLabel: UILabel!
     @IBOutlet weak var triggersLabel: UITextField!
     @IBOutlet weak var auraSegmentedControl: UISegmentedControl!
+    @IBOutlet weak var intensityLabel: UILabel!
     @IBOutlet weak var intensitySegmentalControl: UISegmentedControl!
+    @IBOutlet weak var medicationLabel: UILabel!
     @IBOutlet weak var medicationTextField: UITextField!
+    
+    @IBOutlet weak var durationLabel: UILabel!
     @IBOutlet weak var durationSegmentedControl: UISegmentedControl!
+    
+    @IBOutlet weak var intensityAfterMedicationLabel: UILabel!
     @IBOutlet weak var intensityAfterMedicationSegmentalControl: UISegmentedControl!
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         getInitialValues()
-
+        let presenter = BlankViewControllerPresenter()
+        
+        migraineEpisodeBlankTitle.text = presenter.migrainEpisodeBlank
+        triggerLabel.text = presenter.triggers
+        
+        let noAuraString: String = presenter.noAura
+        let auraString: String = presenter.withAura
+        auraSegmentedControl.setTitle(noAuraString, forSegmentAt: 0)
+        auraSegmentedControl.setTitle(auraString, forSegmentAt: 1)
+        intensityLabel.text = presenter.intensity
+        medicationLabel.text = presenter.medication
+        durationLabel.text = presenter.durationInHours
+        intensityAfterMedicationLabel.text = presenter.intensityAfterMedication
+        
         // Do any additional setup after loading the view.
     }
     
