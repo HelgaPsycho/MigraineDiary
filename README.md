@@ -26,7 +26,7 @@ App save information about migrain episodes and give saved information and stati
 # **Authors**
 
 Olga Egorova
-telegram: @olgaEgorovaNeuro
+telegram: @HelgaPsycho
  
 # **Version History**
 
