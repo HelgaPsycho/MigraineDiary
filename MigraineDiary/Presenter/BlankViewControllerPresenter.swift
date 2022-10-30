@@ -23,7 +23,7 @@ class BlankViewControllerPresenter {
         get
         { if (UserSettings.language == nil) || (UserSettings.language == "eng")
             {return "Information about Migrain Episode"} else {
-                return "Инфонмация об эпизоде мигрени"
+                return "Информация об эпизоде мигрени"
             }
         }
     }
@@ -41,16 +41,11 @@ class BlankViewControllerPresenter {
         get
         { if (UserSettings.language == nil) || (UserSettings.language == "eng")
             {return "Triggers"} else {
-                return "Триггеры"
+                return "Триггеры:"
             }
         }
     }
     
-//    static var triggersList: String {
-//        get {
-//            return
-//        }
-//    }
     
     var withAura: String {
         get
@@ -74,7 +69,7 @@ class BlankViewControllerPresenter {
         get
         { if (UserSettings.language == nil) || (UserSettings.language == "eng")
             {return "Intensity"} else {
-                return "Интенсивность"
+                return "Интенсивность:"
                 
             }
         }
@@ -94,7 +89,7 @@ class BlankViewControllerPresenter {
         get
         { if (UserSettings.language == nil) || (UserSettings.language == "eng")
             {return "Duration in hours"} else {
-                return "Длительность в часах"
+                return "Длительность в часах:"
                 
             }
         }
@@ -104,7 +99,7 @@ class BlankViewControllerPresenter {
         get
         { if (UserSettings.language == nil) || (UserSettings.language == "eng")
             {return "Intensity after medicatoin"} else {
-                return "Интенсивность после приема медикаментов"
+                return "Интенсивность после приема медикаментов:"
                 
             }
         }
@@ -114,7 +109,7 @@ class BlankViewControllerPresenter {
         get
         { if (UserSettings.language == nil) || (UserSettings.language == "eng")
             {return "Date"} else {
-                return "Дата"
+                return "Дата:"
                 
             }
         }

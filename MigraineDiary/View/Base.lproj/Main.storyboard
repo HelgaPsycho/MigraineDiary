@@ -166,10 +166,10 @@
                                         <rect key="frame" x="11.5" y="65" width="391" height="359"/>
                                     </datePicker>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="RLv-ax-z2s">
-                                        <rect key="frame" x="37.5" y="434" width="339" height="189"/>
+                                        <rect key="frame" x="20.5" y="434" width="373" height="373"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="x6g-jd-uNp">
-                                                <rect key="frame" x="0.0" y="0.0" width="339" height="33.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="373" height="33.5"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Triggers" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OzL-Od-zMp">
                                                         <rect key="frame" x="0.0" y="0.0" width="62.5" height="33.5"/>
@@ -178,27 +178,27 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xbl-kQ-2eQ">
-                                                        <rect key="frame" x="72.5" y="0.0" width="266.5" height="33.5"/>
+                                                        <rect key="frame" x="72.5" y="0.0" width="300.5" height="33.5"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits"/>
                                                     </textField>
                                                 </subviews>
                                             </stackView>
                                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="G8H-HV-vIJ">
-                                                <rect key="frame" x="0.0" y="43.5" width="339" height="32"/>
+                                                <rect key="frame" x="0.0" y="43.5" width="373" height="32"/>
                                                 <segments>
                                                     <segment title="No Aura"/>
                                                     <segment title="With Aura"/>
                                                 </segments>
                                             </segmentedControl>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Intensity" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o7H-4i-45z">
-                                                <rect key="frame" x="0.0" y="84.5" width="339" height="20"/>
+                                                <rect key="frame" x="0.0" y="84.5" width="373" height="20.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="cN5-P1-Foo">
-                                                <rect key="frame" x="0.0" y="114.5" width="339" height="32"/>
+                                                <rect key="frame" x="0.0" y="115" width="373" height="32"/>
                                                 <segments>
                                                     <segment title="1"/>
                                                     <segment title="2"/>
@@ -213,72 +213,72 @@
                                                 </segments>
                                             </segmentedControl>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="f86-i8-Kfn">
-                                                <rect key="frame" x="0.0" y="155.5" width="339" height="33.5"/>
+                                                <rect key="frame" x="0.0" y="156" width="373" height="34"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Medication" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cox-K7-t7v">
-                                                        <rect key="frame" x="0.0" y="0.0" width="84.5" height="33.5"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="84.5" height="34"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kqG-Yj-gdC">
-                                                        <rect key="frame" x="94.5" y="0.0" width="244.5" height="33.5"/>
+                                                        <rect key="frame" x="94.5" y="0.0" width="278.5" height="34"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits"/>
                                                     </textField>
                                                 </subviews>
                                             </stackView>
-                                        </subviews>
-                                    </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="xY8-Ks-rVK">
-                                        <rect key="frame" x="20.5" y="633" width="373" height="174"/>
-                                        <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Duration in hours" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="spS-Yt-kFl">
-                                                <rect key="frame" x="0.0" y="0.0" width="373" height="20.5"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="2f3-BW-qy6">
-                                                <rect key="frame" x="0.0" y="30.5" width="373" height="32"/>
-                                                <segments>
-                                                    <segment title="0-2"/>
-                                                    <segment title="2-6"/>
-                                                    <segment title="6-12"/>
-                                                    <segment title="&gt;12"/>
-                                                    <segment title="&gt;24"/>
-                                                </segments>
-                                            </segmentedControl>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Intensity after medication" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aOu-RI-nTO">
-                                                <rect key="frame" x="0.0" y="71.5" width="373" height="20.5"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="XNa-XX-LWu" userLabel="Intensity After Medication Segmental Controller">
-                                                <rect key="frame" x="0.0" y="102" width="373" height="32"/>
-                                                <segments>
-                                                    <segment title="0"/>
-                                                    <segment title="1"/>
-                                                    <segment title="2"/>
-                                                    <segment title="3"/>
-                                                    <segment title="4"/>
-                                                    <segment title="5"/>
-                                                    <segment title="6"/>
-                                                    <segment title="7"/>
-                                                    <segment title="8"/>
-                                                    <segment title="9"/>
-                                                    <segment title="10"/>
-                                                </segments>
-                                            </segmentedControl>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mjk-O7-Lzw">
-                                                <rect key="frame" x="0.0" y="143" width="373" height="31"/>
-                                                <state key="normal" title="Button"/>
-                                                <buttonConfiguration key="configuration" style="plain" title="SAVE"/>
-                                                <connections>
-                                                    <action selector="saveButtonPressed:" destination="oaJ-ar-F65" eventType="touchUpInside" id="ncd-vV-Pjh"/>
-                                                </connections>
-                                            </button>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="xY8-Ks-rVK">
+                                                <rect key="frame" x="0.0" y="200" width="373" height="173"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Duration in hours" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="spS-Yt-kFl">
+                                                        <rect key="frame" x="0.0" y="0.0" width="373" height="20"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="2f3-BW-qy6">
+                                                        <rect key="frame" x="0.0" y="30" width="373" height="32"/>
+                                                        <segments>
+                                                            <segment title="0-2"/>
+                                                            <segment title="2-6"/>
+                                                            <segment title="6-12"/>
+                                                            <segment title="&gt;12"/>
+                                                            <segment title="&gt;24"/>
+                                                        </segments>
+                                                    </segmentedControl>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Intensity after medication" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aOu-RI-nTO">
+                                                        <rect key="frame" x="0.0" y="71" width="373" height="20.5"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="XNa-XX-LWu" userLabel="Intensity After Medication Segmental Controller">
+                                                        <rect key="frame" x="0.0" y="101.5" width="373" height="32"/>
+                                                        <segments>
+                                                            <segment title="0"/>
+                                                            <segment title="1"/>
+                                                            <segment title="2"/>
+                                                            <segment title="3"/>
+                                                            <segment title="4"/>
+                                                            <segment title="5"/>
+                                                            <segment title="6"/>
+                                                            <segment title="7"/>
+                                                            <segment title="8"/>
+                                                            <segment title="9"/>
+                                                            <segment title="10"/>
+                                                        </segments>
+                                                    </segmentedControl>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mjk-O7-Lzw">
+                                                        <rect key="frame" x="0.0" y="142.5" width="373" height="30.5"/>
+                                                        <state key="normal" title="Button"/>
+                                                        <buttonConfiguration key="configuration" style="plain" title="SAVE"/>
+                                                        <connections>
+                                                            <action selector="saveButtonPressed:" destination="oaJ-ar-F65" eventType="touchUpInside" id="ncd-vV-Pjh"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                            </stackView>
                                         </subviews>
                                     </stackView>
                                 </subviews>
@@ -325,62 +325,62 @@
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="squeredPaper" translatesAutoresizingMaskIntoConstraints="NO" id="v7d-KN-x8l">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="613"/>
                             </imageView>
-                            <stackView opaque="NO" contentMode="scaleAspectFill" axis="vertical" distribution="fillProportionally" spacing="38" translatesAutoresizingMaskIntoConstraints="NO" id="wLS-OX-dhe">
+                            <stackView opaque="NO" contentMode="scaleAspectFill" axis="vertical" distribution="fillProportionally" spacing="26" translatesAutoresizingMaskIntoConstraints="NO" id="wLS-OX-dhe">
                                 <rect key="frame" x="30" y="30" width="354" height="553"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Information about Migraine Episode" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="12" adjustsLetterSpacingToFitWidth="YES" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mkm-2l-dAn">
-                                        <rect key="frame" x="0.0" y="0.0" width="354" height="19.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="354" height="23"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="23"/>
                                         <color key="textColor" systemColor="systemRedColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1bC-KZ-sSm">
-                                        <rect key="frame" x="0.0" y="57.5" width="354" height="18.5"/>
+                                        <rect key="frame" x="0.0" y="49" width="354" height="22"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Trigger" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jV1-id-WZh">
-                                        <rect key="frame" x="0.0" y="114" width="354" height="18"/>
+                                        <rect key="frame" x="0.0" y="97" width="354" height="21.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Aura" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RY2-JA-TCO">
-                                        <rect key="frame" x="0.0" y="170" width="354" height="18.5"/>
+                                        <rect key="frame" x="0.0" y="144.5" width="354" height="21.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Intensity:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LDu-pG-Q9e">
-                                        <rect key="frame" x="0.0" y="226.5" width="354" height="18"/>
+                                        <rect key="frame" x="0.0" y="192" width="354" height="21.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="10" translatesAutoresizingMaskIntoConstraints="NO" id="8bL-tl-G7j">
-                                        <rect key="frame" x="0.0" y="282.5" width="354" height="53.5"/>
+                                        <rect key="frame" x="0.0" y="239.5" width="354" height="63.5"/>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Medication" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5H1-r2-cgq">
-                                        <rect key="frame" x="0.0" y="374" width="354" height="18"/>
+                                        <rect key="frame" x="0.0" y="329" width="354" height="21.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Duration" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="boD-YV-cHe">
-                                        <rect key="frame" x="0.0" y="430" width="354" height="9"/>
+                                        <rect key="frame" x="0.0" y="376.5" width="354" height="21.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Intensity after medication:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="svi-al-jkp">
-                                        <rect key="frame" x="0.0" y="477" width="354" height="0.0"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Intensity after medication:" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsLetterSpacingToFitWidth="YES" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="svi-al-jkp">
+                                        <rect key="frame" x="0.0" y="424" width="354" height="21.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="10" translatesAutoresizingMaskIntoConstraints="NO" id="a0H-Tx-otS">
-                                        <rect key="frame" x="0.0" y="515" width="354" height="0.0"/>
+                                        <rect key="frame" x="0.0" y="471.5" width="354" height="55.5"/>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7bl-5j-IWi">
                                         <rect key="frame" x="0.0" y="553" width="354" height="0.0"/>
@@ -461,39 +461,39 @@
                                         <rect key="frame" x="11.5" y="65" width="391" height="344.5"/>
                                     </datePicker>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="eex-yh-73W">
-                                        <rect key="frame" x="37.5" y="419.5" width="339" height="72.5"/>
+                                        <rect key="frame" x="20.5" y="419.5" width="373" height="158.5"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="nOQ-sl-KGb">
-                                                <rect key="frame" x="0.0" y="0.0" width="339" height="13"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="373" height="14"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Triggers" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="po1-Ha-qbJ">
-                                                        <rect key="frame" x="0.0" y="0.0" width="62.5" height="13"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="62.5" height="14"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="IoM-aW-mme">
-                                                        <rect key="frame" x="72.5" y="0.0" width="266.5" height="13"/>
+                                                        <rect key="frame" x="72.5" y="0.0" width="300.5" height="14"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits"/>
                                                     </textField>
                                                 </subviews>
                                             </stackView>
                                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="mwc-kL-bW2">
-                                                <rect key="frame" x="0.0" y="23" width="339" height="12.5"/>
+                                                <rect key="frame" x="0.0" y="24" width="373" height="14.5"/>
                                                 <segments>
                                                     <segment title="No Aura"/>
                                                     <segment title="With Aura"/>
                                                 </segments>
                                             </segmentedControl>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Intensity" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GKB-XD-w9G">
-                                                <rect key="frame" x="0.0" y="44.5" width="339" height="8"/>
+                                                <rect key="frame" x="0.0" y="47.5" width="373" height="8.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="4ta-wd-FeR">
-                                                <rect key="frame" x="0.0" y="62.5" width="339" height="1"/>
+                                                <rect key="frame" x="0.0" y="66" width="373" height="5.5"/>
                                                 <segments>
                                                     <segment title="1"/>
                                                     <segment title="2"/>
@@ -508,7 +508,7 @@
                                                 </segments>
                                             </segmentedControl>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="nWa-PI-3wy">
-                                                <rect key="frame" x="0.0" y="72.5" width="339" height="0.0"/>
+                                                <rect key="frame" x="0.0" y="80.5" width="373" height="0.0"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Medication" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cj0-uh-hIs">
                                                         <rect key="frame" x="0.0" y="0.0" width="84.5" height="0.0"/>
@@ -517,64 +517,64 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pP8-bf-nQr">
-                                                        <rect key="frame" x="94.5" y="0.0" width="244.5" height="0.0"/>
+                                                        <rect key="frame" x="94.5" y="0.0" width="278.5" height="0.0"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits"/>
                                                     </textField>
                                                 </subviews>
                                             </stackView>
-                                        </subviews>
-                                    </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="un3-vx-ldF">
-                                        <rect key="frame" x="20.5" y="502" width="373" height="76"/>
-                                        <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Duration in hours" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fHV-lr-FPD">
-                                                <rect key="frame" x="0.0" y="0.0" width="373" height="9"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="bZn-xX-gAE">
-                                                <rect key="frame" x="0.0" y="19" width="373" height="14.5"/>
-                                                <segments>
-                                                    <segment title="0-2"/>
-                                                    <segment title="2-6"/>
-                                                    <segment title="6-12"/>
-                                                    <segment title="&gt;12"/>
-                                                    <segment title="&gt;24"/>
-                                                </segments>
-                                            </segmentedControl>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Intensity after medication" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G1J-Mq-Fzw">
-                                                <rect key="frame" x="0.0" y="42.5" width="373" height="9"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="7ge-kM-C97" userLabel="Intensity After Medication Segmental Controller">
-                                                <rect key="frame" x="0.0" y="61.5" width="373" height="5.5"/>
-                                                <segments>
-                                                    <segment title="0"/>
-                                                    <segment title="1"/>
-                                                    <segment title="2"/>
-                                                    <segment title="3"/>
-                                                    <segment title="4"/>
-                                                    <segment title="5"/>
-                                                    <segment title="6"/>
-                                                    <segment title="7"/>
-                                                    <segment title="8"/>
-                                                    <segment title="9"/>
-                                                    <segment title="10"/>
-                                                </segments>
-                                            </segmentedControl>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0fM-E8-egZ">
-                                                <rect key="frame" x="0.0" y="76" width="373" height="0.0"/>
-                                                <state key="normal" title="Button"/>
-                                                <buttonConfiguration key="configuration" style="plain" title="SAVE"/>
-                                                <connections>
-                                                    <action selector="saveButtonPressed:" destination="oaJ-ar-F65" eventType="touchUpInside" id="D0M-GW-WE3"/>
-                                                    <action selector="saveButtonPressed:" destination="F3r-BM-rKB" eventType="touchUpInside" id="han-4L-Om3"/>
-                                                </connections>
-                                            </button>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="un3-vx-ldF">
+                                                <rect key="frame" x="0.0" y="90.5" width="373" height="68"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Duration in hours" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fHV-lr-FPD">
+                                                        <rect key="frame" x="0.0" y="0.0" width="373" height="8"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="bZn-xX-gAE">
+                                                        <rect key="frame" x="0.0" y="18" width="373" height="13"/>
+                                                        <segments>
+                                                            <segment title="0-2"/>
+                                                            <segment title="2-6"/>
+                                                            <segment title="6-12"/>
+                                                            <segment title="&gt;12"/>
+                                                            <segment title="&gt;24"/>
+                                                        </segments>
+                                                    </segmentedControl>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Intensity after medication" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G1J-Mq-Fzw">
+                                                        <rect key="frame" x="0.0" y="40" width="373" height="8"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="7ge-kM-C97" userLabel="Intensity After Medication Segmental Controller">
+                                                        <rect key="frame" x="0.0" y="58" width="373" height="1"/>
+                                                        <segments>
+                                                            <segment title="0"/>
+                                                            <segment title="1"/>
+                                                            <segment title="2"/>
+                                                            <segment title="3"/>
+                                                            <segment title="4"/>
+                                                            <segment title="5"/>
+                                                            <segment title="6"/>
+                                                            <segment title="7"/>
+                                                            <segment title="8"/>
+                                                            <segment title="9"/>
+                                                            <segment title="10"/>
+                                                        </segments>
+                                                    </segmentedControl>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0fM-E8-egZ">
+                                                        <rect key="frame" x="0.0" y="68" width="373" height="0.0"/>
+                                                        <state key="normal" title="Button"/>
+                                                        <buttonConfiguration key="configuration" style="plain" title="SAVE"/>
+                                                        <connections>
+                                                            <action selector="saveButtonPressed:" destination="oaJ-ar-F65" eventType="touchUpInside" id="D0M-GW-WE3"/>
+                                                            <action selector="saveButtonPressed:" destination="F3r-BM-rKB" eventType="touchUpInside" id="han-4L-Om3"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                            </stackView>
                                         </subviews>
                                     </stackView>
                                 </subviews>
@@ -609,6 +609,31 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2Dw-sM-Bd6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1164" y="782"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="CHh-TR-iVk">
+            <objects>
+                <viewController id="OqI-G9-OxQ" sceneMemberID="viewController">
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Y4d-f0-vRC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2175" y="1025"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="ajN-Vz-KCu">
+            <objects>
+                <viewController id="l36-CR-lcw" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="CU9-Yi-fM8">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="bnK-Vu-zem"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3M5-8O-bFe" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-706" y="186"/>
         </scene>
     </scenes>
     <resources>

@@ -13,7 +13,7 @@ class MigraineEpisodeCell: UITableViewCell {
     
     static func nib() -> UINib {
         return UINib(nibName: "MigraineEpisodeCell", bundle: nil)
-        // nibName - название файла xib
+        // nibName - название файла xibn
     }
     var dateOfMigraineEpisode: Date = Date(timeIntervalSinceNow: 0)
     //ДАТА не включает секунды, поэтому модели созданные в течение одной минуты идеют одинаковую дату -> при удалении таких объектов они удаляются рандомно

@@ -20,7 +20,15 @@ struct Keys {
             }
         }
     }
+    
+    static var languageAlerMassage: String {
+        get { if (UserSettings.language == nil) || (UserSettings.language == "eng")
+            {return "Choose a language"} else {
+                return "Выберите язык"}
+            }
+        }
+    }
 
-}
+
 
 
