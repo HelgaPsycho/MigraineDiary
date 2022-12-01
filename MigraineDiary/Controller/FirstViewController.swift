@@ -18,19 +18,23 @@ class FirstViewController: UIViewController {
     
     let verticalStackView: UIStackView = {
           let stackView = UIStackView()
+        stackView.backgroundColor = .lightGray
           stackView.translatesAutoresizingMaskIntoConstraints = false
-          stackView.axis = .vertical
-          stackView.distribution = .fillEqually
-          stackView.alignment = .center
-          stackView.spacing = 0
-      
+        stackView.axis = .vertical
+        stackView.distribution = .fillEqually
+        stackView.alignment = .center
+        stackView.spacing = 0
           return stackView
       }()
     
-    @IBOutlet weak var appName: UILabel!
-    @IBOutlet weak var appNameView: UIView!
-    @IBOutlet weak var tableViewContainer: UIView!
-    @IBOutlet weak var bottomView: UIView!
+    var titleLabel: UILabel = {
+        let label = UILabel()
+        label.textAlignment = .center
+        label.textColor = .blue
+        label.font = UIFont(name: "Helvetica", size: 30)
+        label.text = Keys.appTitle
+        return label
+    }()
     
     var tableView: UITableView = {
             let tableView = UITableView ()
@@ -41,16 +45,28 @@ class FirstViewController: UIViewController {
         }()
     
     
+    
+//    @IBOutlet weak var appName: UILabel!
+//    @IBOutlet weak var appNameView: UIView!
+//    @IBOutlet weak var tableViewContainer: UIView!
+//    @IBOutlet weak var bottomView: UIView!
+//
+
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
     
-        view.addSubview(tableViewContainer)
-        tableViewContainer.addSubview(tableView)
-        tableViewContainer.addSubview(appNameView)
-        appNameView.addSubview(appName)
-        appName.text = Keys.appName
-        view.addSubview(bottomView)
+        view.addSubview(verticalStackView)
+        setupVerticalSackView()
+        
+//        view.addSubview(tableViewContainer)
+//        tableViewContainer.addSubview(tableView)
+//        tableViewContainer.addSubview(appNameView)
+//        appNameView.addSubview(appName)
+//        appName.text = Keys.appTitle
+//        view.addSubview(bottomView)
         setupTableView()
         tableView.register(MigraineEpisodeCell.nib(), forCellReuseIdentifier: MigraineEpisodeCell.identifier)
         
@@ -67,6 +83,21 @@ class FirstViewController: UIViewController {
     }
        
     
+    func setupVerticalSackView (){
+        
+        
+        verticalStackView.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 0).isActive = true
+                //почему-то top далеко от края safeArea
+        verticalStackView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 0).isActive = true
+        verticalStackView.rightAnchor.constraint(equalTo: view.rightAnchor, constant: 0).isActive = true
+        verticalStackView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: 0).isActive = true
+        
+        verticalStackView.addArrangedSubview(titleLabel)
+        verticalStackView.addArrangedSubview(tableView)
+        
+    }
+    
+    
 func toObtainAndSortMigrainEpisodes () throws -> [MigraineEpisode] {
     if var migraineEpisodeArray = try? dataStoreManager.obtainMigraineEpisode() {
         migraineEpisodeArray.sort {$0.date! > $1.date!}
@@ -76,10 +107,10 @@ func toObtainAndSortMigrainEpisodes () throws -> [MigraineEpisode] {
 }
     
     func setupTableView (){
-            tableView.topAnchor.constraint(equalTo: appNameView.bottomAnchor, constant: 2).isActive = true
-            tableView.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -20).isActive = true
-            tableView.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 20).isActive = true
-            tableView.bottomAnchor.constraint(equalTo: bottomView.topAnchor).isActive = true
+            tableView.topAnchor.constraint(equalTo: view.bottomAnchor, constant: 0).isActive = true
+            tableView.rightAnchor.constraint(equalTo: view.rightAnchor, constant: 0).isActive = true
+            tableView.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 0).isActive = true
+            tableView.bottomAnchor.constraint(equalTo: view.topAnchor).isActive = true
         
     
     
@@ -89,11 +120,11 @@ func toObtainAndSortMigrainEpisodes () throws -> [MigraineEpisode] {
     @IBAction func settingsButton(_ sender: UIButton) {
         
         let alert = UIAlertController(title: Keys.languageAlerMassage, message: nil, preferredStyle: .actionSheet)
-        alert.addAction(UIAlertAction(title: "Русский", style: .default, handler: { (UIAlertAction) in UserSettings.language = "rus"; self.appName.text = Keys.appName}))
-        alert.addAction(UIAlertAction(title: "English", style: .default, handler: { (UIAlertAction) in UserSettings.language = "eng"; self.appName.text = Keys.appName}))
-        
+        alert.addAction(UIAlertAction(title: "Русский", style: .default, handler: { (UIAlertAction) in UserSettings.language = "rus"; self.titleLabel.text = Keys.appTitle}))
+        alert.addAction(UIAlertAction(title: "English", style: .default, handler: { (UIAlertAction) in UserSettings.language = "eng"; self.titleLabel.text = Keys.appTitle}))
+
         present(alert, animated: true, completion: nil)
-        
+//
 //        if UserSettings.language == nil {
 //            UserSettings.language = "rus"
 //        } else {

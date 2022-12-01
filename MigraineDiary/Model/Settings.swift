@@ -10,17 +10,14 @@ import Foundation
 
 final class UserSettings {
     
-    private enum SettingsKeys: String {
-        case language
-    }
     
     static var language: String! {
         get {
-            return UserDefaults.standard.string(forKey: SettingsKeys.language.rawValue)
+            return UserDefaults.standard.string(forKey: "language")
         }
         set {
             let defaults = UserDefaults.standard
-            let key = SettingsKeys.language.rawValue
+            let key = "language"
             if let language = newValue {
                 print ("value: \(language) was eddded to key \(key)" )
                 defaults.set(language, forKey: key)
@@ -29,6 +26,10 @@ final class UserSettings {
             }
         }
     }
+    
+    static func resetLanguage (){
+        let defaults = UserDefaults.standard
+        defaults.removeObject(forKey: "language")    }
     
 
 }

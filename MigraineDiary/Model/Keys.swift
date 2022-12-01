@@ -12,7 +12,7 @@ struct Keys {
     
     //UserSettings.language
     
-    static var appName: String {
+    static var appTitle: String {
         get
         { if (UserSettings.language == nil) || (UserSettings.language == "eng")
             {return "Migrain Diary"} else {
