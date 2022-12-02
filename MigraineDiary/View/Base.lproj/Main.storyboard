@@ -18,23 +18,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FbO-ko-UKH">
-                                <rect key="frame" x="0.0" y="47" width="375" height="70"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Migrain Diary" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lnx-zV-bl5">
-                                        <rect key="frame" x="97.333333333333329" y="17" width="180.33333333333337" height="36"/>
-                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="30"/>
-                                        <color key="textColor" systemColor="linkColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="70" id="Cdl-8p-FXu"/>
-                                    <constraint firstItem="Lnx-zV-bl5" firstAttribute="centerY" secondItem="FbO-ko-UKH" secondAttribute="centerY" id="EK7-mY-l5k"/>
-                                    <constraint firstItem="Lnx-zV-bl5" firstAttribute="centerX" secondItem="FbO-ko-UKH" secondAttribute="centerX" id="XIv-iD-tcz"/>
-                                </constraints>
-                            </view>
                             <containerView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kgV-4T-bk1">
                                 <rect key="frame" x="0.0" y="114" width="375" height="584"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
@@ -90,10 +73,7 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="FbO-ko-UKH" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="1xW-FB-SA7"/>
                             <constraint firstItem="HvC-ey-3To" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="PJm-Nf-Lke"/>
-                            <constraint firstItem="FbO-ko-UKH" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="b93-u3-Xju"/>
-                            <constraint firstItem="FbO-ko-UKH" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="e7V-BV-u9T"/>
                             <constraint firstItem="HvC-ey-3To" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="pxv-x9-mKv"/>
                             <constraint firstItem="HvC-ey-3To" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="qpX-xL-T1T"/>
                         </constraints>
@@ -612,9 +592,6 @@
         <image name="gearshape.2" catalog="system" width="128" height="101"/>
         <image name="plus.app" catalog="system" width="128" height="114"/>
         <image name="squeredPaper" width="690" height="930.5"/>
-        <systemColor name="linkColor">
-            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

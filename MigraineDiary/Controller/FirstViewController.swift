@@ -12,38 +12,55 @@ class FirstViewController: UIViewController {
 
     var dataStoreManager = DataStoreManager()
     var migraineEpisodeArray: Array <MigraineEpisode> = []
-    var selectedMigraineEpisode = MigraineEpisode ()
+   // var selectedMigraineEpisode = MigraineEpisode ()
     
     let defaults = UserDefaults.standard
     
-    let verticalStackView: UIStackView = {
-          let stackView = UIStackView()
-        stackView.backgroundColor = .lightGray
-          stackView.translatesAutoresizingMaskIntoConstraints = false
-        stackView.axis = .vertical
-        stackView.distribution = .fillEqually
-        stackView.alignment = .center
-        stackView.spacing = 0
-          return stackView
-      }()
+    var upperView: UIStackView = {
+        let view = UIStackView()
+        view.backgroundColor = .yellow
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.axis = .vertical
+        view.distribution = .fillEqually
+        view.alignment = .center
+        return view
+    }()
     
     var titleLabel: UILabel = {
         let label = UILabel()
         label.textAlignment = .center
         label.textColor = .blue
-        label.font = UIFont(name: "Helvetica", size: 30)
+        label.font = UIFont(name: "Helvetica", size: 32)
         label.text = Keys.appTitle
         return label
     }()
     
     var tableView: UITableView = {
-            let tableView = UITableView ()
+        let tableView = UITableView ()
         tableView.backgroundColor = .yellow
-            tableView.translatesAutoresizingMaskIntoConstraints = false
+        tableView.translatesAutoresizingMaskIntoConstraints = false
         print ("tableView initilized")
-            return tableView
+        return tableView
         }()
     
+    var bottomStackView: UIStackView = {
+        let stackView = UIStackView()
+        stackView.backgroundColor = .yellow
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        stackView.axis = .horizontal
+        stackView.alignment = .center
+        stackView.distribution = .fillEqually
+        return stackView
+    }()
+    
+    var settingsButton: UIButton = {
+        let button = UIButton()
+        button.translatesAutoresizingMaskIntoConstraints = false
+        let image = UIImage(systemName: "gearshape.2")
+        image!.withTintColor(.blue)
+        button.setImage(image, for: .normal)
+        return button
+    }()
     
     
 //    @IBOutlet weak var appName: UILabel!
@@ -53,22 +70,27 @@ class FirstViewController: UIViewController {
 //
 
     
-    
+    //MARK: - viewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-    
-        view.addSubview(verticalStackView)
-        setupVerticalSackView()
         
+        view.backgroundColor = .red
+        view.addSubview(upperView)
+        setupUpperView()
+        view.addSubview(bottomStackView)
+        setupBottomStackView()
+        
+
 //        view.addSubview(tableViewContainer)
 //        tableViewContainer.addSubview(tableView)
 //        tableViewContainer.addSubview(appNameView)
 //        appNameView.addSubview(appName)
 //        appName.text = Keys.appTitle
 //        view.addSubview(bottomView)
-        setupTableView()
-        tableView.register(MigraineEpisodeCell.nib(), forCellReuseIdentifier: MigraineEpisodeCell.identifier)
+      //  setupTableView()
+        
+    tableView.register(MigraineEpisodeCell.nib(), forCellReuseIdentifier: MigraineEpisodeCell.identifier)
         
         do {
             migraineEpisodeArray = try toObtainAndSortMigrainEpisodes() }
@@ -82,19 +104,31 @@ class FirstViewController: UIViewController {
 
     }
        
+    func setupUpperView (){
+        upperView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 0).isActive = true
+        upperView.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 0).isActive = true
+        upperView.rightAnchor.constraint(equalTo: view.rightAnchor, constant: 0).isActive = true
+        upperView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 1/10).isActive = true
+        
+        upperView.addArrangedSubview(titleLabel)
+        setupTitleLabel()
+
+    }
     
-    func setupVerticalSackView (){
+    func setupTitleLabel (){
+
+        titleLabel.bottomAnchor.constraint(equalTo: upperView.bottomAnchor, constant: 30).isActive = true
+        titleLabel.leftAnchor.constraint(equalTo: upperView.leftAnchor, constant: 20).isActive = true
+        titleLabel.rightAnchor.constraint(equalTo: upperView.rightAnchor, constant: -20).isActive = true
+        titleLabel.heightAnchor.constraint(equalTo: upperView.heightAnchor, multiplier: 2/3).isActive = true
         
-        
-        verticalStackView.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 0).isActive = true
-                //почему-то top далеко от края safeArea
-        verticalStackView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 0).isActive = true
-        verticalStackView.rightAnchor.constraint(equalTo: view.rightAnchor, constant: 0).isActive = true
-        verticalStackView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: 0).isActive = true
-        
-        verticalStackView.addArrangedSubview(titleLabel)
-        verticalStackView.addArrangedSubview(tableView)
-        
+    }
+    
+    func setupBottomStackView() {
+        bottomStackView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor).isActive = true
+        bottomStackView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
+        bottomStackView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
+        bottomStackView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 1/8)
     }
     
     
@@ -105,16 +139,16 @@ func toObtainAndSortMigrainEpisodes () throws -> [MigraineEpisode] {
     } else {
         throw DataStoreManagerErrors.emptyDataBase }
 }
-    
-    func setupTableView (){
-            tableView.topAnchor.constraint(equalTo: view.bottomAnchor, constant: 0).isActive = true
-            tableView.rightAnchor.constraint(equalTo: view.rightAnchor, constant: 0).isActive = true
-            tableView.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 0).isActive = true
-            tableView.bottomAnchor.constraint(equalTo: view.topAnchor).isActive = true
-        
-    
-    
-        }
+//
+//    func setupTableView (){
+//            tableView.topAnchor.constraint(equalTo: upperView.bottomAnchor, constant: 0).isActive = true
+//            tableView.rightAnchor.constraint(equalTo: view.rightAnchor, constant: 0).isActive = true
+//            tableView.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 0).isActive = true
+//            tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+//
+//
+//
+//        }
     
       
     @IBAction func settingsButton(_ sender: UIButton) {
