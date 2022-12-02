@@ -35,9 +35,6 @@
                                                     <imageReference key="image" image="gearshape.2" catalog="system" symbolScale="large"/>
                                                     <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" configurationType="pointSize" pointSize="45"/>
                                                 </buttonConfiguration>
-                                                <connections>
-                                                    <action selector="settingsButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="APy-o0-nsJ"/>
-                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="niK-yY-8n8">
                                                 <rect key="frame" x="121.33333333333334" y="0.0" width="92.333333333333343" height="71.333333333333329"/>
@@ -46,9 +43,6 @@
                                                     <imageReference key="image" image="plus.app" catalog="system" symbolScale="large"/>
                                                     <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" configurationType="pointSize" pointSize="45"/>
                                                 </buttonConfiguration>
-                                                <connections>
-                                                    <segue destination="oaJ-ar-F65" kind="show" id="2Lt-B8-pyA"/>
-                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pNe-vx-oZP">
                                                 <rect key="frame" x="242.66666666666671" y="0.0" width="92.333333333333343" height="71.333333333333329"/>
@@ -78,6 +72,9 @@
                             <constraint firstItem="HvC-ey-3To" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="qpX-xL-T1T"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <segue destination="oaJ-ar-F65" kind="show" identifier="toMigraineEpisodeBlankSegue" id="1kL-4m-QUn"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
