@@ -73,7 +73,7 @@ class TableViewController: UITableViewController, NSFetchedResultsControllerDele
     
     func toObtainAndSortMigrainEpisodes () throws -> [MigraineEpisode] {
         if var migraineEpisodeArray = try? dataStoreManager.obtainMigraineEpisode() {
-            migraineEpisodeArray.sort {$0.date! > $1.date!}
+            migraineEpisodeArray.sort {$0.date > $1.date}
             return migraineEpisodeArray
         } else {
             throw DataStoreManagerErrors.emptyDataBase }
@@ -85,7 +85,7 @@ class TableViewController: UITableViewController, NSFetchedResultsControllerDele
         if editingStyle == .delete {
             let indexOfArrayElement: Int = Int(indexPath.row)
             do {
-               try dataStoreManager.obtainAndRemoveOneMigraineEpisode (date: migraineEpisodeArray[indexOfArrayElement].date!)
+               try dataStoreManager.obtainAndRemoveOneMigraineEpisode (date: migraineEpisodeArray[indexOfArrayElement].date)
                 //print ("\(migraineEpisodeArray[].date!)")
             }
             catch {print ("ERROR in TablieViewController with cell delete")}
@@ -101,7 +101,7 @@ class TableViewController: UITableViewController, NSFetchedResultsControllerDele
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         do {
-            selectedMigraineEpisode = try dataStoreManager.obtainOneMigraineEpisode(date: migraineEpisodeArray[indexPath.row].date!)
+            selectedMigraineEpisode = try dataStoreManager.obtainOneMigraineEpisode(date: migraineEpisodeArray[indexPath.row].date)
         }
         catch {
             print ("ERROR in TablieViewController with find migraine episode")

@@ -2,7 +2,6 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina5_9" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -18,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <containerView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kgV-4T-bk1">
-                                <rect key="frame" x="0.0" y="114" width="375" height="584"/>
+                                <rect key="frame" x="0.0" y="113" width="375" height="585"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                             </containerView>
                         </subviews>
@@ -320,10 +319,6 @@
                                                 </fragment>
                                             </attributedString>
                                         </buttonConfiguration>
-                                        <connections>
-                                            <action selector="changeButtonPressed:" destination="A45-D0-cwO" eventType="touchUpInside" id="4e9-zg-Eet"/>
-                                            <segue destination="F3r-BM-rKB" kind="show" identifier="changeBlankSegue" id="tGa-v4-AXx"/>
-                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
@@ -367,11 +362,11 @@
             <objects>
                 <viewController id="F3r-BM-rKB" customClass="ChangeBlankViewController" customModule="MigraineDiary" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="CoA-Th-NTo">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="755"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="J5G-Z6-yM5">
-                                <rect key="frame" x="0.0" y="5" width="375" height="720"/>
+                                <rect key="frame" x="0.0" y="5" width="375" height="777"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Migraine Episode Blank" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zy4-7x-pIX">
                                         <rect key="frame" x="62.333333333333329" y="0.0" width="250.66666666666669" height="55"/>
@@ -383,10 +378,10 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" style="inline" translatesAutoresizingMaskIntoConstraints="NO" id="JXW-Jt-jTo">
-                                        <rect key="frame" x="0.0" y="65" width="375" height="267.66666666666669"/>
+                                        <rect key="frame" x="0.0" y="65" width="375" height="324.66666666666669"/>
                                     </datePicker>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="eex-yh-73W">
-                                        <rect key="frame" x="1" y="342.66666666666674" width="373" height="377.33333333333326"/>
+                                        <rect key="frame" x="1" y="399.66666666666674" width="373" height="377.33333333333326"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="nOQ-sl-KGb">
                                                 <rect key="frame" x="0.0" y="0.0" width="373" height="34"/>

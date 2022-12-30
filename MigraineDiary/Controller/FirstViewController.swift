@@ -167,7 +167,7 @@ class FirstViewController: UIViewController {
     
     func toObtainAndSortMigrainEpisodes () throws -> [MigraineEpisode] {
         if var migraineEpisodeArray = try? dataStoreManager.obtainMigraineEpisode() {
-            migraineEpisodeArray.sort {$0.date! > $1.date!}
+            migraineEpisodeArray.sort {$0.date > $1.date}
             return migraineEpisodeArray
         } else {
             throw DataStoreManagerErrors.emptyDataBase }
@@ -212,7 +212,7 @@ extension FirstViewController: UITableViewDataSource {
         let date = migraineEpisodeArray[indexPath.row].date
         let medication = migraineEpisodeArray[indexPath.row].medication
         let image: UIImage = UIImage(imageLiteralResourceName: "\(score)")
-        customCell.configure(date: date!, medication: medication!, image: image)
+        customCell.configure(date: date, medication: medication!, image: image)
         //cell.textLabel?.text = "22.03.22"
         
         return customCell
@@ -226,7 +226,7 @@ extension FirstViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print("did select row at called")
         do {
-            selectedMigraineEpisode = try dataStoreManager.obtainOneMigraineEpisode(date: migraineEpisodeArray[indexPath.row].date!)
+            selectedMigraineEpisode = try dataStoreManager.obtainOneMigraineEpisode(date: migraineEpisodeArray[indexPath.row].date)
         }
         catch {
             print ("ERROR in TablieViewController with find migraine episode")

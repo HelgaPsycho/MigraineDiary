@@ -9,8 +9,8 @@ import UIKit
 
 class ChangeBlankViewController: UIViewController {
 
-    var migraineEpisode: MigraineEpisode!
-    var dataStoreManager: DataStoreManager!
+    var migraineEpisode: MigraineEpisode?
+    var dataStoreManager: DataStoreManager?
     
     @IBOutlet weak var migraineEpisodeBlankTitle: UILabel!
     @IBOutlet weak var datePicker: UIDatePicker!
@@ -63,16 +63,20 @@ class ChangeBlankViewController: UIViewController {
 
     
     func getInitialValues () {
-        datePicker.date = migraineEpisode.date!
-        triggersLabel.text = migraineEpisode.triggers!
-        if migraineEpisode.aura == true {
+        guard let selectMigrainEpiside = migraineEpisode else {
+            print("No Migrain Episode Find")
+            return
+        }
+        datePicker.date = selectMigrainEpiside.date
+        triggersLabel.text = selectMigrainEpiside.triggers!
+        if selectMigrainEpiside.aura == true {
         auraSegmentedControl.selectedSegmentIndex = 1
         } else {
             auraSegmentedControl.selectedSegmentIndex = 0
         }
-        intensitySegmentalControl.selectedSegmentIndex = Int(migraineEpisode.intensity - 1)
-        medicationTextField.text = migraineEpisode.medication!
-        switch migraineEpisode.dutation{
+        intensitySegmentalControl.selectedSegmentIndex = Int(selectMigrainEpiside.intensity - 1)
+        medicationTextField.text = selectMigrainEpiside.medication!
+        switch selectMigrainEpiside.dutation{
         case "0 - 2" :
             durationSegmentedControl.selectedSegmentIndex = 0
         case  "2 - 6":
@@ -86,7 +90,7 @@ class ChangeBlankViewController: UIViewController {
         default:
             durationSegmentedControl.selectedSegmentIndex = 0
         }
-        intensityAfterMedicationSegmentalControl.selectedSegmentIndex = Int(migraineEpisode.intensityAfterMadication - 1)
+        intensityAfterMedicationSegmentalControl.selectedSegmentIndex = Int(selectMigrainEpiside.intensityAfterMadication - 1)
         
         
     }
@@ -95,39 +99,46 @@ class ChangeBlankViewController: UIViewController {
     
     @IBAction func saveButtonPressed(_ sender: UIButton) {
         
-        migraineEpisode.setValue(datePicker.date, forKey: #keyPath(MigraineEpisode.date))
+        guard let selectMigrainEpisode =  migraineEpisode else {print("No Migrain Episode Find")
+            return}
         
-        migraineEpisode.setValue(textFieldDidEndEditing(triggersLabel), forKey: #keyPath(MigraineEpisode.triggers))
+        selectMigrainEpisode.setValue(datePicker.date, forKey: #keyPath(MigraineEpisode.date))
+        
+        selectMigrainEpisode.setValue(textFieldDidEndEditing(triggersLabel), forKey: #keyPath(MigraineEpisode.triggers))
         
       if auraSegmentedControl.selectedSegmentIndex == 0 {
-          migraineEpisode.setValue(false, forKey: #keyPath(MigraineEpisode.aura))
-        } else { migraineEpisode.setValue(true, forKey: #keyPath(MigraineEpisode.aura)) }
+          selectMigrainEpisode.setValue(false, forKey: #keyPath(MigraineEpisode.aura))
+        } else { selectMigrainEpisode.setValue(true, forKey: #keyPath(MigraineEpisode.aura)) }
         
-        migraineEpisode.setValue(Int16(intensitySegmentalControl.selectedSegmentIndex + 1), forKey: #keyPath(MigraineEpisode.intensity))
+        selectMigrainEpisode.setValue(Int16(intensitySegmentalControl.selectedSegmentIndex + 1), forKey: #keyPath(MigraineEpisode.intensity))
         
-        migraineEpisode.setValue(textFieldDidEndEditing(medicationTextField), forKey: #keyPath(MigraineEpisode.medication))
+        selectMigrainEpisode.setValue(textFieldDidEndEditing(medicationTextField), forKey: #keyPath(MigraineEpisode.medication))
         
         switch durationSegmentedControl.selectedSegmentIndex {
         case 0 :
-            migraineEpisode.setValue("0 - 2", forKey: #keyPath(MigraineEpisode.dutation))
+            selectMigrainEpisode.setValue("0 - 2", forKey: #keyPath(MigraineEpisode.dutation))
         case 1 :
-            migraineEpisode.setValue("2 - 6", forKey: #keyPath(MigraineEpisode.dutation))
+            selectMigrainEpisode.setValue("2 - 6", forKey: #keyPath(MigraineEpisode.dutation))
         case 2 :
-            migraineEpisode.setValue("6 - 12", forKey: #keyPath(MigraineEpisode.dutation))
+            selectMigrainEpisode.setValue("6 - 12", forKey: #keyPath(MigraineEpisode.dutation))
         case 3 :
-            migraineEpisode.setValue("12 - 24", forKey: #keyPath(MigraineEpisode.dutation))
+            selectMigrainEpisode.setValue("12 - 24", forKey: #keyPath(MigraineEpisode.dutation))
         case 4 :
-            migraineEpisode.setValue("> 24", forKey: #keyPath(MigraineEpisode.dutation))
+            selectMigrainEpisode.setValue("> 24", forKey: #keyPath(MigraineEpisode.dutation))
         default:
             print("Duration of Migrain Episode 0 - 2 hours")
         }
 
-        migraineEpisode.setValue(intensityAfterMedicationSegmentalControl.selectedSegmentIndex + 1,
+        selectMigrainEpisode.setValue(intensityAfterMedicationSegmentalControl.selectedSegmentIndex + 1,
  forKey: #keyPath(MigraineEpisode.intensityAfterMadication))
     
+        guard let dsManager = dataStoreManager else {
+            print("No dataStoreManager find")
+            return
+        }
 
-        dataStoreManager.saveContext()        
-        dataStoreManager.notifySuscribers ()
+        dsManager.saveContext()
+        dsManager.notifySuscribers ()
         
        // dataStoreManager.updateMigraineEpisode(migraineEpisode: migraineEpisode)
     

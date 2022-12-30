@@ -23,8 +23,8 @@ class InformationViewControllerPresenter {
     }
     
     var dateLabelText: String { if (UserSettings.language == nil) || (UserSettings.language == "eng")
-        {return "Date: \(migraineEpisode.date!)"} else {
-            return "Дата: \(migraineEpisode.date!)"
+        {return "\(migraineEpisode.date.dayAndTimeTextEng)"} else {
+            return "\(migraineEpisode.date.dayAndTimeTextRu)"
         }
         
     }

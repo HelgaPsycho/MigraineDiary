@@ -9,9 +9,9 @@ import UIKit
 
 class InformationViewController: UIViewController, Subscriber {
         
-    var migraineEpisode: MigraineEpisode!
+    var migraineEpisode: MigraineEpisode?
     
-    var dataStoreManager: DataStoreManager!
+    var dataStoreManager: DataStoreManager?
     
     private lazy var titleLabel: UILabel = {
        let label = UILabel()
@@ -22,24 +22,47 @@ class InformationViewController: UIViewController, Subscriber {
         label.adjustsFontSizeToFitWidth = true
         return label
     }()
+    
+    private lazy var stackView: UIStackView = {
+        let stackView = UIStackView()
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        stackView.axis = .vertical
+        stackView.distribution = .fillEqually
+        stackView.alignment = .leading
+        stackView.spacing = 5
+        return stackView
+    }()
+    
+    private lazy var dateLabel: UILabel = getLabel()
+    private lazy var triggerLabel: UILabel = getLabel()
+    private lazy var auraLabel: UILabel = getLabel()
+    private lazy var intensityLabel: UILabel = getLabel()
+    
+    private lazy var intensityView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.contentMode = .scaleAspectFit
+        return imageView
+    }()
 
-//    @IBOutlet weak var titleLabel: UILabel!
-//    @IBOutlet weak var dateLabel: UILabel!
-//
-//    @IBOutlet weak var triggerLabel: UILabel!
-//
-//    @IBOutlet weak var auraLabel: UILabel!
-//
-//    @IBOutlet weak var intensityLabel: UILabel!
-//    @IBOutlet weak var intensityView: UIImageView!
-//
-//    @IBOutlet weak var medicationLabel: UILabel!
-//
-//    @IBOutlet weak var durationLabel: UILabel!
-//
-//    @IBOutlet weak var intensityAfterMedicationLabel: UILabel!
-//
-//    @IBOutlet weak var intensityAfterMedicationView: UIImageView!
+    private lazy var medicationLabel: UILabel  = getLabel()
+    private lazy var durationLabel: UILabel = getLabel()
+    private lazy var intensityAfterMedicationLabel: UILabel = getLabel()
+    
+    private lazy var intensityAfterMedicationView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.contentMode = .scaleAspectFit
+        return imageView
+    }()
+    
+    private func getLabel()-> UILabel {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.textColor = UIColor.black
+        label.textAlignment = .left
+        label.font = UIFont.preferredFont(forTextStyle: .title3)
+        label.adjustsFontSizeToFitWidth = true
+        return label
+    }
 
     
     private lazy var changeButton: UIButton = {
@@ -54,6 +77,7 @@ class InformationViewController: UIViewController, Subscriber {
         button.titleLabel?.textAlignment = .center
         button.titleLabel?.font = UIFont.preferredFont(forTextStyle: .title2)
         button.titleLabel?.adjustsFontSizeToFitWidth = true
+        button.addTarget(self, action: #selector(changeButtonPressed), for: .touchUpInside)
         return button
     }()
     
@@ -71,6 +95,16 @@ class InformationViewController: UIViewController, Subscriber {
     
     private func setHierarhy() {
         view.addSubview(titleLabel)
+        view.addSubview(stackView)
+        stackView.addArrangedSubview(dateLabel)
+        stackView.addArrangedSubview(triggerLabel)
+        stackView.addArrangedSubview(auraLabel)
+        stackView.addArrangedSubview(intensityLabel)
+        stackView.addArrangedSubview(intensityView)
+        stackView.addArrangedSubview(medicationLabel)
+        stackView.addArrangedSubview(durationLabel)
+        stackView.addArrangedSubview(intensityAfterMedicationLabel)
+        stackView.addArrangedSubview(intensityAfterMedicationView)
         view.addSubview(changeButton)
     }
     private func setConstraints(){
@@ -80,18 +114,22 @@ class InformationViewController: UIViewController, Subscriber {
             titleLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -30),
             titleLabel.heightAnchor.constraint(equalToConstant: 25),
 
-            
+            stackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 30),
+            stackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -30),
+            stackView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 10),
+            stackView.bottomAnchor.constraint(equalTo: changeButton.topAnchor,constant: -10),
             
             changeButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -20),
             changeButton.heightAnchor.constraint(equalToConstant: 50),
             changeButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 100),
-            changeButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -100)
+            changeButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -100),
+        
         ])
     }
     
-    @IBAction func changeButtonPressed(_ sender: UIButton) {
-        
-    }
+//    @IBAction func changeButtonPressed(_ sender: UIButton) {
+//
+//    }
     
     func formateDateToString (date: Date) -> String {
         let dateFormatter = DateFormatter()
@@ -109,16 +147,28 @@ class InformationViewController: UIViewController, Subscriber {
         let presenter = InformationViewControllerPresenter (migraineEpisode: selectedMigrainEpisode)
         
         titleLabel.text = presenter.title
-//        dateLabel.text = presenter.dateLabelText
-//        triggerLabel.text = presenter.triggersLabelText
-//        auraLabel.text = presenter.auraLabelText
-//        intensityLabel.text = presenter.intensityLabelText
-//        intensityView.image = presenter.intensityView
-//        medicationLabel.text = presenter.medicationLabelText
-//        durationLabel.text = presenter.durationLabelText
-//        intensityAfterMedicationLabel.text = presenter.intensityAfterMedicationLabelText
-//        intensityAfterMedicationView.image = presenter.intensityAfterMedicationView
+        dateLabel.text = presenter.dateLabelText
+        triggerLabel.text = presenter.triggersLabelText
+        auraLabel.text = presenter.auraLabelText
+        intensityLabel.text = presenter.intensityLabelText
+        intensityView.image = presenter.intensityView
+        medicationLabel.text = presenter.medicationLabelText
+        durationLabel.text = presenter.durationLabelText
+        intensityAfterMedicationLabel.text = presenter.intensityAfterMedicationLabelText
+        intensityAfterMedicationView.image = presenter.intensityAfterMedicationView
         
+    }
+    
+    @objc func changeButtonPressed(sender: UIButton){
+        presentChangeBlanckViewController()
+    }
+    
+    private func presentChangeBlanckViewController(){
+        let viewController = ChangeBlankViewController()
+        viewController.dataStoreManager = dataStoreManager
+        viewController.migraineEpisode = migraineEpisode
+            self.present(viewController, animated: true)
+
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

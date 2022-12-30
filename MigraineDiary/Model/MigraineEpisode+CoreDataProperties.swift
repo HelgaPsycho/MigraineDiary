@@ -16,7 +16,7 @@ extension MigraineEpisode {
         return NSFetchRequest<MigraineEpisode>(entityName: "MigraineEpisode")
     }
 
-    @NSManaged public var date: Date?
+    @NSManaged public var date: Date
     @NSManaged public var dutation: String?
     @NSManaged public var intensity: Int16
     @NSManaged public var intensityAfterMadication: Int16
