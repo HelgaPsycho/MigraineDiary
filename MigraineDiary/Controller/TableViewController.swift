@@ -46,29 +46,29 @@ class TableViewController: UITableViewController, NSFetchedResultsControllerDele
     
     // MARK: - Table view data source
     
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 1
-    }
-    
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return migraineEpisodeArray.count
-        
-    }
-    
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let customCell = migraineTableView.dequeueReusableCell(withIdentifier: MigraineEpisodeCell.identifier, for: indexPath) as! MigraineEpisodeCell
-        let score = migraineEpisodeArray[indexPath.row].intensity
-        let date = migraineEpisodeArray[indexPath.row].date
-        let medication = migraineEpisodeArray[indexPath.row].medication
-        let image: UIImage = UIImage(imageLiteralResourceName: "\(score)")
-        customCell.configure(date: date!, medication: medication!, image: image)
-        //cell.textLabel?.text = "22.03.22"
-        
-        return customCell
-        
-    }
+//    override func numberOfSections(in tableView: UITableView) -> Int {
+//        // #warning Incomplete implementation, return the number of sections
+//        return 1
+//    }
+//    
+//    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+//        // #warning Incomplete implementation, return the number of rows
+//        return migraineEpisodeArray.count
+//        
+//    }
+//    
+//    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+//        let customCell = migraineTableView.dequeueReusableCell(withIdentifier: MigraineEpisodeCell.identifier, for: indexPath) as! MigraineEpisodeCell
+//        let score = migraineEpisodeArray[indexPath.row].intensity
+//        let date = migraineEpisodeArray[indexPath.row].date
+//        let medication = migraineEpisodeArray[indexPath.row].medication
+//        let image: UIImage = UIImage(imageLiteralResourceName: "\(score)")
+//        customCell.configure(date: date!, medication: medication!, image: image)
+//        //cell.textLabel?.text = "22.03.22"
+//        
+//        return customCell
+//        
+//    }
 
     
     func toObtainAndSortMigrainEpisodes () throws -> [MigraineEpisode] {
@@ -110,11 +110,19 @@ class TableViewController: UITableViewController, NSFetchedResultsControllerDele
         
       //  selectedMigraineEpisode.setValue("BANANA", forKey: #keyPath(MigraineEpisode.medication))
         self.performSegue(withIdentifier: "segueToInformationViewController", sender: self)
-        
+        //self.presentInformationViewController()
         
        tableView.deselectRow(at: indexPath, animated: true)
 
 
+    }
+    
+    
+    private func presentInformationViewController() {
+        let viewController = InformationViewController()
+            viewController.migraineEpisode = self.selectedMigraineEpisode
+            viewController.dataStoreManager = self.dataStoreManager
+        self.present(viewController, animated: true)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -198,4 +206,6 @@ class TableViewController: UITableViewController, NSFetchedResultsControllerDele
         
         
 }
+    
+    
 }

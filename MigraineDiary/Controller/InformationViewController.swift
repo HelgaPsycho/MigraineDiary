@@ -13,37 +13,81 @@ class InformationViewController: UIViewController, Subscriber {
     
     var dataStoreManager: DataStoreManager!
     
+    private lazy var titleLabel: UILabel = {
+       let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.textColor = UIColor.red
+        label.textAlignment = .center
+        label.font = UIFont.preferredFont(forTextStyle: .title2)
+        label.adjustsFontSizeToFitWidth = true
+        return label
+    }()
 
-    @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var dateLabel: UILabel!
+//    @IBOutlet weak var titleLabel: UILabel!
+//    @IBOutlet weak var dateLabel: UILabel!
+//
+//    @IBOutlet weak var triggerLabel: UILabel!
+//
+//    @IBOutlet weak var auraLabel: UILabel!
+//
+//    @IBOutlet weak var intensityLabel: UILabel!
+//    @IBOutlet weak var intensityView: UIImageView!
+//
+//    @IBOutlet weak var medicationLabel: UILabel!
+//
+//    @IBOutlet weak var durationLabel: UILabel!
+//
+//    @IBOutlet weak var intensityAfterMedicationLabel: UILabel!
+//
+//    @IBOutlet weak var intensityAfterMedicationView: UIImageView!
+
     
-    @IBOutlet weak var triggerLabel: UILabel!
-    
-    @IBOutlet weak var auraLabel: UILabel!
-    
-    @IBOutlet weak var intensityLabel: UILabel!
-    @IBOutlet weak var intensityView: UIImageView!
-    
-    @IBOutlet weak var medicationLabel: UILabel!
-    
-    @IBOutlet weak var durationLabel: UILabel!
-    
-    @IBOutlet weak var intensityAfterMedicationLabel: UILabel!
-    
-    @IBOutlet weak var intensityAfterMedicationView: UIImageView!
-    
+    private lazy var changeButton: UIButton = {
+        let button = UIButton()
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.clipsToBounds = true
+        button.layer.cornerRadius = 10
+        button.backgroundColor = .red
+        button.setTitle("CHANGE", for: .normal)
+        button.setTitleColor(UIColor.white, for: .normal)
+        button.setTitleColor(UIColor.lightGray, for: .highlighted)
+        button.titleLabel?.textAlignment = .center
+        button.titleLabel?.font = UIFont.preferredFont(forTextStyle: .title2)
+        button.titleLabel?.adjustsFontSizeToFitWidth = true
+        return button
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        dataStoreManager.subscribe(subscriber: self)
-        
-        
+        view.backgroundColor = UIColor.white
+        dataStoreManager!.subscribe(subscriber: self)
         
          getOutletsValue()
+        
+        setHierarhy()
+        setConstraints()
          
     }
     
+    private func setHierarhy() {
+        view.addSubview(titleLabel)
+        view.addSubview(changeButton)
+    }
+    private func setConstraints(){
+        NSLayoutConstraint.activate([
+            titleLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 20),
+            titleLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 30),
+            titleLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -30),
+            titleLabel.heightAnchor.constraint(equalToConstant: 25),
+
+            
+            
+            changeButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -20),
+            changeButton.heightAnchor.constraint(equalToConstant: 50),
+            changeButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 100),
+            changeButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -100)
+        ])
+    }
     
     @IBAction func changeButtonPressed(_ sender: UIButton) {
         
@@ -58,18 +102,22 @@ class InformationViewController: UIViewController, Subscriber {
     
     func getOutletsValue () {
         
-        let presenter = InformationViewControllerPresenter (migraineEpisode: migraineEpisode)
+        guard let selectedMigrainEpisode = migraineEpisode else {
+            print ("No migrain episode find")
+            return }
+        
+        let presenter = InformationViewControllerPresenter (migraineEpisode: selectedMigrainEpisode)
         
         titleLabel.text = presenter.title
-        dateLabel.text = presenter.dateLabelText
-        triggerLabel.text = presenter.triggersLabelText
-        auraLabel.text = presenter.auraLabelText
-        intensityLabel.text = presenter.intensityLabelText
-        intensityView.image = presenter.intensityView
-        medicationLabel.text = presenter.medicationLabelText
-        durationLabel.text = presenter.durationLabelText
-        intensityAfterMedicationLabel.text = presenter.intensityAfterMedicationLabelText
-        intensityAfterMedicationView.image = presenter.intensityAfterMedicationView
+//        dateLabel.text = presenter.dateLabelText
+//        triggerLabel.text = presenter.triggersLabelText
+//        auraLabel.text = presenter.auraLabelText
+//        intensityLabel.text = presenter.intensityLabelText
+//        intensityView.image = presenter.intensityView
+//        medicationLabel.text = presenter.medicationLabelText
+//        durationLabel.text = presenter.durationLabelText
+//        intensityAfterMedicationLabel.text = presenter.intensityAfterMedicationLabelText
+//        intensityAfterMedicationView.image = presenter.intensityAfterMedicationView
         
     }
     

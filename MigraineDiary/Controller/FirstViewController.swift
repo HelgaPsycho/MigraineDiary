@@ -9,7 +9,6 @@ import UIKit
 
 class FirstViewController: UIViewController {
     
-    
     var dataStoreManager = DataStoreManager()
     var migraineEpisodeArray: Array <MigraineEpisode> = []
     var selectedMigraineEpisode = MigraineEpisode ()
@@ -19,7 +18,6 @@ class FirstViewController: UIViewController {
     
     var upperView: UIStackView = {
         let view = UIStackView()
-        view.backgroundColor = .yellow
         view.translatesAutoresizingMaskIntoConstraints = false
         view.axis = .vertical
         view.distribution = .fillEqually
@@ -30,7 +28,7 @@ class FirstViewController: UIViewController {
     var titleLabel: UILabel = {
         let label = UILabel()
         label.textAlignment = .center
-        label.textColor = .blue
+        label.textColor = .systemBlue
         label.font = UIFont(name: "Helvetica", size: 32)
         label.text = Keys.appTitle
         return label
@@ -45,7 +43,6 @@ class FirstViewController: UIViewController {
     
     var bottomStackView: UIStackView = {
         let stackView = UIStackView()
-        stackView.backgroundColor = .yellow
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.axis = .horizontal
         stackView.alignment = .fill
@@ -96,6 +93,7 @@ class FirstViewController: UIViewController {
     
     
     //MARK: - viewDidLoad
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -110,13 +108,9 @@ class FirstViewController: UIViewController {
         catch {
         }
         
-        dataStoreManager.subscribe(subscriber: self)
-        
-        print("================Migraine Episode Array : \(migraineEpisodeArray)")
-        
-        // Do any additional setup after loading the view.
-        
-        view.backgroundColor = .red
+        tableView.dataSource = self
+        tableView.delegate = self
+    
         view.addSubview(upperView)
         setupUpperView()
         view.addSubview(bottomStackView)
@@ -153,6 +147,7 @@ class FirstViewController: UIViewController {
         tableView.rightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.rightAnchor).isActive = true
         tableView.topAnchor.constraint(equalTo: upperView.bottomAnchor).isActive = true
         tableView.bottomAnchor.constraint(equalTo: bottomStackView.topAnchor).isActive = true
+        
         
         
     }
@@ -193,42 +188,90 @@ class FirstViewController: UIViewController {
        
     }
 
-
     
 }
     
 
     // MARK: - Table view data source
     
-    extension FirstViewController: UITableViewDataSource {
+extension FirstViewController: UITableViewDataSource {
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        // #warning Incomplete implementation, return the number of sections
+        return 1
+    }
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        // #warning Incomplete implementation, return the number of rows
+        return migraineEpisodeArray.count
         
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let customCell = tableView.dequeueReusableCell(withIdentifier: MigraineEpisodeCell.identifier, for: indexPath) as? MigraineEpisodeCell else {fatalError("could not dequeueReusableCell")}
+        let score = migraineEpisodeArray[indexPath.row].intensity
+        let date = migraineEpisodeArray[indexPath.row].date
+        let medication = migraineEpisodeArray[indexPath.row].medication
+        let image: UIImage = UIImage(imageLiteralResourceName: "\(score)")
+        customCell.configure(date: date!, medication: medication!, image: image)
+        //cell.textLabel?.text = "22.03.22"
         
-        func numberOfSections(in tableView: UITableView) -> Int {
-            // #warning Incomplete implementation, return the number of sections
-            return 1
-        }
-        func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-            // #warning Incomplete implementation, return the number of rows
-            return migraineEpisodeArray.count
-            
-        }
+        return customCell
         
-        func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-            let customCell = tableView.dequeueReusableCell(withIdentifier: MigraineEpisodeCell.identifier, for: indexPath) as! MigraineEpisodeCell
-            let score = migraineEpisodeArray[indexPath.row].intensity
-            let date = migraineEpisodeArray[indexPath.row].date
-            let medication = migraineEpisodeArray[indexPath.row].medication
-            let image: UIImage = UIImage(imageLiteralResourceName: "\(score)")
-            customCell.configure(date: date!, medication: medication!, image: image)
-            //cell.textLabel?.text = "22.03.22"
-            
-            return customCell
-            
+    }
+    
+}
+
+extension FirstViewController: UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print("did select row at called")
+        do {
+            selectedMigraineEpisode = try dataStoreManager.obtainOneMigraineEpisode(date: migraineEpisodeArray[indexPath.row].date!)
         }
+        catch {
+            print ("ERROR in TablieViewController with find migraine episode")
+        }
+        print (selectedMigraineEpisode)
+        
+        //  selectedMigraineEpisode.setValue("BANANA", forKey: #keyPath(MigraineEpisode.medication))
+       //self.performSegue(withIdentifier: "segueToInformationViewController", sender: self)
+        self.presentInformationViewController()
+        
+        tableView.deselectRow(at: indexPath, animated: true)
         
         
     }
     
+    private func presentInformationViewController() {
+        let viewController = InformationViewController()
+        viewController.migraineEpisode = self.selectedMigraineEpisode
+        viewController.dataStoreManager = self.dataStoreManager
+        self.present(viewController, animated: true)
+    }
+    
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        print("prepare for segue called")
+//        if segue.identifier == "segueToInformationViewController" {
+//            let destinationVC = segue.destination as! InformationViewController
+//            destinationVC.migraineEpisode = selectedMigraineEpisode
+//            destinationVC.dataStoreManager = dataStoreManager
+//
+//
+//        }
+//    }
+}
+
+//// MARK: - Table view data source
+//
+//extension FirstViewController {
+//
+//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//        print("======================cell selected===================")
+//       // self.performSegue(withIdentifier: "segueToInformationViewController", sender: self)
+//        tableView.deselectRow(at: indexPath, animated: true)
+//    }
+//
+//}
     //MARK: - Subscriber
     
     extension FirstViewController: Subscriber {

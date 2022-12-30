@@ -4,7 +4,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
-        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -22,55 +21,9 @@
                                 <rect key="frame" x="0.0" y="114" width="375" height="584"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                             </containerView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HvC-ey-3To">
-                                <rect key="frame" x="0.0" y="698" width="375" height="80"/>
-                                <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="29" translatesAutoresizingMaskIntoConstraints="NO" id="KUa-sD-OBR">
-                                        <rect key="frame" x="20" y="14" width="335" height="71.333333333333329"/>
-                                        <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SOa-wC-nYU">
-                                                <rect key="frame" x="0.0" y="0.0" width="92.333333333333329" height="71.333333333333329"/>
-                                                <state key="normal" title="Button"/>
-                                                <buttonConfiguration key="configuration" style="plain" title="">
-                                                    <imageReference key="image" image="gearshape.2" catalog="system" symbolScale="large"/>
-                                                    <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" configurationType="pointSize" pointSize="45"/>
-                                                </buttonConfiguration>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="niK-yY-8n8">
-                                                <rect key="frame" x="121.33333333333334" y="0.0" width="92.333333333333343" height="71.333333333333329"/>
-                                                <state key="normal" title="Button"/>
-                                                <buttonConfiguration key="configuration" style="plain" title="">
-                                                    <imageReference key="image" image="plus.app" catalog="system" symbolScale="large"/>
-                                                    <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" configurationType="pointSize" pointSize="45"/>
-                                                </buttonConfiguration>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pNe-vx-oZP">
-                                                <rect key="frame" x="242.66666666666671" y="0.0" width="92.333333333333343" height="71.333333333333329"/>
-                                                <state key="normal" title="Button"/>
-                                                <buttonConfiguration key="configuration" style="plain" title="">
-                                                    <imageReference key="image" image="doc.text" catalog="system" symbolScale="large"/>
-                                                    <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" configurationType="pointSize" pointSize="45"/>
-                                                </buttonConfiguration>
-                                            </button>
-                                        </subviews>
-                                    </stackView>
-                                </subviews>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <constraints>
-                                    <constraint firstItem="KUa-sD-OBR" firstAttribute="leading" secondItem="HvC-ey-3To" secondAttribute="leading" constant="20" id="1oT-X6-Ge3"/>
-                                    <constraint firstAttribute="height" constant="80" id="Ard-h3-JCH"/>
-                                    <constraint firstItem="KUa-sD-OBR" firstAttribute="top" secondItem="HvC-ey-3To" secondAttribute="top" constant="14" id="EDB-5z-KbC"/>
-                                    <constraint firstAttribute="trailing" secondItem="KUa-sD-OBR" secondAttribute="trailing" constant="20" id="gN0-ST-lP5"/>
-                                </constraints>
-                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="HvC-ey-3To" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="PJm-Nf-Lke"/>
-                            <constraint firstItem="HvC-ey-3To" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="pxv-x9-mKv"/>
-                            <constraint firstItem="HvC-ey-3To" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="qpX-xL-T1T"/>
-                        </constraints>
                     </view>
                     <connections>
                         <segue destination="oaJ-ar-F65" kind="show" identifier="toMigraineEpisodeBlankSegue" id="1kL-4m-QUn"/>
@@ -585,9 +538,6 @@
     </scenes>
     <resources>
         <image name="10" width="1930" height="75"/>
-        <image name="doc.text" catalog="system" width="115" height="128"/>
-        <image name="gearshape.2" catalog="system" width="128" height="101"/>
-        <image name="plus.app" catalog="system" width="128" height="114"/>
         <image name="squeredPaper" width="690" height="930.5"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

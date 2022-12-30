@@ -113,8 +113,6 @@ lazy var backgroundContext: NSManagedObjectContext = {
             try tableViewContext.save()
        
             
-            
-            
         }
     }
     
@@ -161,6 +159,7 @@ protocol Subscriber {
     func update()
 }
 
+  
 // MARK: - DataStoreManagerErrors -
 enum DataStoreManagerErrors: Error {
     case emptyDataBase
